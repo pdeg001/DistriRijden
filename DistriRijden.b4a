@@ -1,0 +1,90 @@
+﻿Build1=Default,nl.distridata.distririjden
+File1=dd_logo.png
+File2=disrtirijden.db
+File3=main.bal
+FileGroup1=Default Group
+FileGroup2=Default Group
+FileGroup3=Default Group
+Group=Default Group
+Library1=core
+Library2=json
+Library3=net
+Library4=runtimepermissions
+Library5=xui
+Library6=sql
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="29"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
+Module1=distriDb
+Module2=DistriFtpGetArticle
+Module3=DistriFtpGetDriver
+Module4=Starter
+NumberOfFiles=3
+NumberOfLibraries=6
+NumberOfModules=4
+Version=10.7
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Distri Rijden
+	#VersionCode: 1
+	#VersionName: 0.01
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: landscape
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: True
+	#IncludeTitle: False
+#End Region
+
+Sub Process_Globals
+	Private xui As XUI
+	Private clsFtpDriver As DistriFtpGetDriver
+	Private clsFtpArtilce As DistriFtpGetArticle
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	Private pnlMainFooter As Panel
+	Private lblArtcileUpdate As Label
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	clsFtpDriver.Initialize
+	clsFtpArtilce.Initialize
+	Activity.LoadLayout("main")
+	
+
+	SetArticleUpdate
+	
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub Button1_Click
+	ProgressDialogShow2("Ophalen routes", False)
+	Sleep(200)
+	 wait for (clsFtpDriver.GetDrivers) Complete(ready As Boolean)
+	ProgressDialogHide
+	'Return
+	ProgressDialogShow2("Artikelen bijwerken", False)
+	Sleep(200)
+	Wait For (clsFtpArtilce.GetArticles) Complete (ready As Boolean)
+	ProgressDialogHide
+	SetArticleUpdate
+End Sub
+
+Private Sub SetArticleUpdate
+	If File.Exists( Starter.filesFolder&"/article/", "artikel.json") = True Then
+		lblArtcileUpdate.Text = "Laatste artikel update : " & $"$DateTime{(File.LastModified(Starter.filesFolder&"/article/", "artikel.json")}"$)
+	End If
+End Sub
+
+Sub FtpProcessStatus
+	
+End Sub
