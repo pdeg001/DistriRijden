@@ -1,22 +1,26 @@
 ﻿Build1=Default,nl.distridata.distririjden
 File1=dd_logo.png
-File10=Raleway-Thin.ttf
-File11=Raleway-VariableFont_wght.ttf
+File10=Raleway-Regular.ttf
+File11=Raleway-Thin.ttf
+File12=Raleway-VariableFont_wght.ttf
+File13=SelectRoute.bal
 File2=disrtirijden.db
 File3=main.bal
 File4=pnlDriver.bal
-File5=Raleway-Bold.ttf
-File6=Raleway-Italic.ttf
-File7=Raleway-Italic-VariableFont_wght.ttf
-File8=Raleway-Medium.ttf
-File9=Raleway-Regular.ttf
+File5=pnlSelectRoute.bal
+File6=Raleway-Bold.ttf
+File7=Raleway-Italic.ttf
+File8=Raleway-Italic-VariableFont_wght.ttf
+File9=Raleway-Medium.ttf
 FileGroup1=images
 FileGroup10=fonts
 FileGroup11=fonts
+FileGroup12=fonts
+FileGroup13=Route
 FileGroup2=data
 FileGroup3=forms\MAIN
 FileGroup4=forms\MAIN
-FileGroup5=fonts
+FileGroup5=Route
 FileGroup6=fonts
 FileGroup7=fonts
 FileGroup8=fonts
@@ -33,10 +37,11 @@ ManifestCode='This code will be applied to the manifest file during compilation.
 Module1=distriDb
 Module2=DistriFtpGetArticle
 Module3=DistriFtpGetDriver
-Module4=Starter
-NumberOfFiles=11
+Module4=DriverSelectRoute
+Module5=Starter
+NumberOfFiles=13
 NumberOfLibraries=7
-NumberOfModules=4
+NumberOfModules=5
 Version=10.7
 @EndOfDesignText@
 #Region  Project Attributes 
@@ -148,20 +153,19 @@ Private Sub CreateDriverList
 	clvDriver.Clear
 	
 	Starter.lstDriverRoute.SortTypeCaseInsensitive("chauffeur", True)
-	For Each driver As DriverRoute In Starter.lstDriverRoute
+	For Each driver As driverRoute In Starter.lstDriverRoute
 		clvDriver.Add(CreateDriverPanel(driver), "")
 	Next
 	clvDriver.Refresh
 End Sub
 
-Private Sub CreateDriverPanel(driver As DriverRoute) As Panel
+Private Sub CreateDriverPanel(driver As driverRoute) As Panel
 	Dim pnl As B4XView = xui.CreatePanel("")
 	pnl.SetLayoutAnimated(0, 0, 0, clvDriver.AsView.Width, 65dip)
 	pnl.LoadLayout("pnlDriver")
-	
 	lblSelectDriver.Text = driver.chauffeur
 	lblSelectDriver.Tag = driver.pin
-	pnlSelectDriver.Tag = $"${driver.pin};${driver.chauffeur}"$
+	pnlSelectDriver.Tag = $"${driver.pin};${driver.chauffeur};${driver.route}"$
 	
 	Return pnl
 End Sub
@@ -173,11 +177,16 @@ End Sub
 Private Sub pnlSelectDriver_Click
 	Dim pnl As Panel = Sender
 	Dim dPin() As String = Regex.Split(";", pnl.Tag)
-	
-	
+		
 	Starter.driverId = ""
+	Starter.driverRoutes = ""
+	edtPin.Text = ""
+	
 	If dPin.Length > 0 Then 
+		Starter.enterPinCount = 0
 		Starter.driverId = dPin(0)
+		Log(Starter.driverId)
+		Starter.driverRoutes = dPin(2)
 		lblDriverPinName.Text = $"${dPin(1)} voer je pincode in"$
 		'show pin dialog
 		pnlDriverPin.SetLayoutAnimated(500, 0dip, 0dip, Activity.Width, Activity.Height)
@@ -199,10 +208,30 @@ Private Sub edtPin_FocusChanged (HasFocus As Boolean)
 End Sub
 
 Private Sub btnPinContinue_Click
+	If edtPin.Text <> Starter.driverId Then
+		ToastMessageShow("Pincode onjuist", False)
+		Starter.enterPinCount = Starter.enterPinCount + 1
+		If Starter.enterPinCount >= 3 Then
+			Msgbox2Async("2 foutive pogingen, DistriRijden wordt afgesloten", "DIstriRijden", "Oke", "", "", Null, "")
+			Wait For Msgbox_Result (Result As Int)
+			If Result = DialogResponse.POSITIVE Then
+				Activity.Finish
+			End If
+		End If
+		edtPin.Text = ""
+	Else
+		HidePinDialog
+		Sleep(300)
+		StartActivity(DriverSelectRoute)
+	End If
 	
 End Sub
 
 Private Sub btnPinCancel_Click
+	HidePinDialog
+End Sub
+
+Private Sub HidePinDialog
 	ime.HideKeyboard
 	Sleep(500)
 	pnlDriverPin.SetLayoutAnimated(500, 0dip, Activity.Height+300dip, Activity.Width, Activity.Height)

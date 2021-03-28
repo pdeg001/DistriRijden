@@ -118,18 +118,18 @@ Private Sub ParseRouteJsonGetDriver(routeTxt As String)' As ResumableSub
 End Sub
 
 Private Sub CheckIfDriverIsInList(driver As String, route As String) As Boolean
-	For Each checkDriver As DriverRoute In Starter.lstDriverRoute
+	For Each checkDriver As driverRoute In Starter.lstDriverRoute
 		'if driver exists add the route to the driver route
 		If checkDriver.chauffeur = driver Then
-			checkDriver.route = $"${checkDriver.route};${route}"$
+			checkDriver.route = $"${checkDriver.route}|${route}"$
 			Return True
 		End If
 	Next
 	Return False
 End Sub
 
-Private Sub CreateDriverRoute (route As String, chauffeur As String, pin As String) As DriverRoute
-	Dim t1 As DriverRoute
+Private Sub CreateDriverRoute (route As String, chauffeur As String, pin As String) As driverRoute
+	Dim t1 As driverRoute
 	t1.Initialize
 	t1.route = route
 	t1.chauffeur = chauffeur

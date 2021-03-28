@@ -11,7 +11,7 @@ Version=9.9
 
 Sub Process_Globals
 	'driver route
-	Type DriverRoute(route As String, chauffeur As String, pin As String)
+	Type driverRoute(route As String, chauffeur As String, pin As String)
 	Public lstDriverRoute As List
 	
 	Private rp As RuntimePermissions
@@ -29,8 +29,11 @@ Sub Process_Globals
 	Public currDateFormat As String = "dd-MM-yyyy HH:mm"
 	Public filesFolder As String
 	Public sql As SQL
-	Public driverId As String
 	Public noFtp As Boolean = True
+	
+	Public driverId As String
+	Public enterPinCount As Int = 0
+	Public driverRoutes as String
 	
 End Sub
 
