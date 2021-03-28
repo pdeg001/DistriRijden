@@ -10,18 +10,34 @@ Version=9.9
 #End Region
 
 Sub Process_Globals
+	'driver route
+	Type DriverRoute(route As String, chauffeur As String, pin As String)
+	Public lstDriverRoute As List
+	
+	Private rp As RuntimePermissions
+	Private FTP As FTP
+	
+	'article folder paths
+	Public articleFolder As String
+	Public FtpArticleFolder As String = "/user_jongens/data"
+	
 	Public ftpFolder As String = "apps.distridata.nl"
 	Public ftpPort As Int = 21
 	Public ftpName As String = "leverapp"
 	Public xFileName As String = "9OaiP6BA"
-	Private rp As RuntimePermissions
+	
+	Public currDateFormat As String = "dd-MM-yyyy HH:mm"
 	Public filesFolder As String
 	Public sql As SQL
-	Private FTP as FTP
+	Public driverId As String
+	Public noFtp As Boolean = True
+	
 End Sub
 
 Sub Service_Create
+	DateTime.DateFormat = currDateFormat
 	GetFilesFolder
+	SetFileFolders
 	InitSql
 End Sub
 
@@ -42,7 +58,6 @@ Sub Service_Destroy
 
 End Sub
 
-
 Private Sub GetFilesFolder
 	filesFolder = rp.GetSafeDirDefaultExternal("")
 End Sub
@@ -59,4 +74,8 @@ Public Sub InitFtp As FTP
 	FTP.TimeoutMs = 4*1000
 	
 	Return FTP
+End Sub
+
+Private Sub SetFileFolders
+	articleFolder = $"${filesFolder}/article/"$
 End Sub
