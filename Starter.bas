@@ -33,7 +33,8 @@ Sub Process_Globals
 	
 	Public driverId As String
 	Public enterPinCount As Int = 0
-	Public driverRoutes as String
+	Public driverRoutes As String
+	Public driverSelectedRoute as String
 	
 End Sub
 

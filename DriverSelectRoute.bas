@@ -84,6 +84,7 @@ Private Sub CreateClvPanel(routeNumber As String, routeName As String, driver As
 	pnl.SetLayoutAnimated(0, 0, 0, clvRoutes.AsView.Width, 125dip)
 	pnl.LoadLayout("pnlSelectRoute")
 	
+	pnlRoute.Tag = $"route${routeNumber}.txt"$
 	lblRouteNumber.Text = $"Route : ${routeNumber}"$
 	If plate.Length > 0 Then
 		lblKenteken.Text = $"Kenteken : ${plate}"$
@@ -92,4 +93,12 @@ Private Sub CreateClvPanel(routeNumber As String, routeName As String, driver As
 	lblRouteName.Text = $"Naam : ${routeName}"$
 	
 	Return pnl
+End Sub
+
+
+Private Sub pnlRoute_Click
+	Dim pnl As Panel = Sender
+	Starter.driverSelectedRoute = pnl.Tag
+	StartActivity(DriverOrders)
+	
 End Sub
