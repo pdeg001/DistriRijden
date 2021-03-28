@@ -1,25 +1,56 @@
 ﻿Build1=Default,nl.distridata.distririjden
 File1=dd_logo.png
+File10=Raleway-Italic.ttf
+File11=Raleway-Italic-VariableFont_wght.ttf
+File12=Raleway-Medium.ttf
+File13=Raleway-Regular.ttf
+File14=Raleway-Thin.ttf
+File15=Raleway-VariableFont_wght.ttf
+File16=RouteOrder.bal
+File17=SelectRoute.bal
 File2=disrtirijden.db
-File3=main.bal
-FileGroup1=Default Group
-FileGroup2=Default Group
-FileGroup3=Default Group
+File3=galanogrotesquemedium.ttf
+File4=galanogrotesqueregular.ttf
+File5=main.bal
+File6=pnlDriver.bal
+File7=pnlOrder.bal
+File8=pnlSelectRoute.bal
+File9=Raleway-Bold.ttf
+FileGroup1=images
+FileGroup10=fonts
+FileGroup11=fonts
+FileGroup12=fonts
+FileGroup13=fonts
+FileGroup14=fonts
+FileGroup15=fonts
+FileGroup16=Order
+FileGroup17=Route
+FileGroup2=data
+FileGroup3=fonts
+FileGroup4=fonts
+FileGroup5=forms\MAIN
+FileGroup6=forms\MAIN
+FileGroup7=Order
+FileGroup8=Route
+FileGroup9=fonts
 Group=Default Group
 Library1=core
 Library2=json
 Library3=net
 Library4=runtimepermissions
-Library5=xui
-Library6=sql
-ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="29"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
+Library5=sql
+Library6=xui
+Library7=xui views
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="29"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~CreateResourceFromFile(Macro, Core.NetworkClearText)~\n~'End of default text.~\n~~\n~~\n~AddPermission(android.permission.INTERNET)~\n~AddPermission(android.permission.VIBRATE)~\n~AddPermission(android.permission.FOREGROUND_SERVICE)~\n~AddPermission(android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)~\n~SetActivityAttribute(Main, android:windowSoftInputMode, adjustPan|stateHidden)~\n~
 Module1=distriDb
 Module2=DistriFtpGetArticle
 Module3=DistriFtpGetDriver
-Module4=Starter
-NumberOfFiles=3
-NumberOfLibraries=6
-NumberOfModules=4
+Module4=DriverOrders
+Module5=DriverSelectRoute
+Module6=Starter
+NumberOfFiles=17
+NumberOfLibraries=7
+NumberOfModules=6
 Version=10.7
 @EndOfDesignText@
 #Region  Project Attributes 
@@ -37,6 +68,8 @@ Version=10.7
 #End Region
 
 Sub Process_Globals
+'	Type tChauffeur(route As String, chauffeur As String, pin As String)
+	
 	Private xui As XUI
 	Private clsFtpDriver As DistriFtpGetDriver
 	Private clsFtpArtilce As DistriFtpGetArticle
@@ -44,8 +77,22 @@ End Sub
 
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
+	Private ime As IME
 	Private pnlMainFooter As Panel
 	Private lblArtcileUpdate As Label
+	Private pgBar As AnotherProgressBar
+	Private pnlProgress As Panel
+	Private lblProgress As Label
+	Private pnlClvDriver As Panel
+	Private clvDriver As CustomListView
+	Private lblSelectDriver As Label
+	Private pnlSelectDriver As Panel
+	Private pnlDriverPin As Panel
+	Private edtPin As EditText
+	Private pnlEnterPin As Panel
+	Private lblDriverPinName As Label
+	Private btnPinCancel As Button
+	Private btnPinContinue As Button
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -53,9 +100,22 @@ Sub Activity_Create(FirstTime As Boolean)
 	clsFtpArtilce.Initialize
 	Activity.LoadLayout("main")
 	
-
+	pgBar.Value = 0
+	pgBar.EmptyColor = 0xFFFF0007
 	SetArticleUpdate
 	
+'	ime.Initialize("IME")
+'	ime.AddHeightChangedEvent
+'	ime.AddHandleActionEvent(edtPin)
+'	ime.SetCustomFilter(edtPin, edtPin.INPUT_TYPE_NUMBERS, "0123456789.")
+'	ime.SetCustomFilter(edtPin, Bit.Or(edtPin.INPUT_TYPE_TEXT, 0x00080000), _ 
+'	"01234567890")'0x0080000 is the flag of NO_SUGGESTIONS.
+'	IME_HeightChanged(50%x, 0) 'manually call this method to set the layout of EditText1 and btnHideKeyboard
+End Sub
+
+Sub IME_HeightChanged(NewHeight As Int, OldHeight As Int)
+'	btnHideKeyboard.Top = NewHeight - btnHideKeyboard.Height
+'	EditText1.Height = btnHideKeyboard.Top - EditText1.Top
 End Sub
 
 Sub Activity_Resume
@@ -67,24 +127,121 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 Sub Button1_Click
-	ProgressDialogShow2("Ophalen routes", False)
-	Sleep(200)
-	 wait for (clsFtpDriver.GetDrivers) Complete(ready As Boolean)
-	ProgressDialogHide
-	'Return
-	ProgressDialogShow2("Artikelen bijwerken", False)
-	Sleep(200)
-	Wait For (clsFtpArtilce.GetArticles) Complete (ready As Boolean)
-	ProgressDialogHide
+	If Starter.noFtp = False Then
+		pnlClvDriver.SetVisibleAnimated(0, False)
+		pgBar.Value = 0
+		pgBar.UpdateGraphics
+		Sleep(100)
+		Wait For (clsFtpArtilce.GetArticles) Complete (ready As Boolean)
+	End If
+	wait for (clsFtpDriver.GetDrivers) Complete(ready As Boolean)
 	SetArticleUpdate
+	
 End Sub
 
 Private Sub SetArticleUpdate
-	If File.Exists( Starter.filesFolder&"/article/", "artikel.json") = True Then
-		lblArtcileUpdate.Text = "Laatste artikel update : " & $"$DateTime{(File.LastModified(Starter.filesFolder&"/article/", "artikel.json")}"$)
+	If File.Exists(Starter.articleFolder, "artikel.json") = True Then
+		lblArtcileUpdate.Text = $"Laatste artikel update : $Date{File.LastModified(Starter.articleFolder, "artikel.json")}"$
 	End If
 End Sub
 
-Sub FtpProcessStatus
+Public Sub SetProgressBar(lstProgress As List)
+	If pnlProgress.Visible = False Then pnlProgress.Visible = True
+	lblProgress.Text = $"Bijwerken ${lstProgress.Get(2)} ${lstProgress.Get(0)} van ${lstProgress.Get(1)}"$
+	pgBar.Value = lstProgress.Get(0)*(100/lstProgress.Get(1))  'progress / total *100
+	pgBar.UpdateGraphics
+End Sub
+
+Private Sub EndProgressAnimation
+	pnlProgress.SetVisibleAnimated(300, False)
+	pnlClvDriver.SetVisibleAnimated(0, True)
+	CreateDriverList
+End Sub
+
+Private Sub CreateDriverList
+	clvDriver.Clear
 	
+	Starter.lstDriverRoute.SortTypeCaseInsensitive("chauffeur", True)
+	For Each driver As driverRoute In Starter.lstDriverRoute
+		clvDriver.Add(CreateDriverPanel(driver), "")
+	Next
+	clvDriver.Refresh
+End Sub
+
+Private Sub CreateDriverPanel(driver As driverRoute) As Panel
+	Dim pnl As B4XView = xui.CreatePanel("")
+	pnl.SetLayoutAnimated(0, 0, 0, clvDriver.AsView.Width, 65dip)
+	pnl.LoadLayout("pnlDriver")
+	lblSelectDriver.Text = driver.chauffeur
+	lblSelectDriver.Tag = driver.pin
+	pnlSelectDriver.Tag = $"${driver.pin};${driver.chauffeur};${driver.route}"$
+	
+	Return pnl
+End Sub
+
+Private Sub clvDriver_ItemClick (Index As Int, Value As Object)
+	Log(Index)
+End Sub
+
+Private Sub pnlSelectDriver_Click
+	Dim pnl As Panel = Sender
+	Dim dPin() As String = Regex.Split(";", pnl.Tag)
+		
+	Starter.driverId = ""
+	Starter.driverRoutes = ""
+	edtPin.Text = ""
+	
+	If dPin.Length > 0 Then 
+		Starter.enterPinCount = 0
+		Starter.driverId = dPin(0)
+		Log(Starter.driverId)
+		Starter.driverRoutes = dPin(2)
+		lblDriverPinName.Text = $"${dPin(1)} voer je pincode in"$
+		'show pin dialog
+		pnlDriverPin.SetLayoutAnimated(500, 0dip, 0dip, Activity.Width, Activity.Height)
+		edtPin.RequestFocus
+		ime.ShowKeyboard(edtPin)
+	End If
+End Sub
+
+Private Sub edtPin_EnterPressed
+	
+End Sub
+
+Private Sub pnlDriverPin_Click
+	
+End Sub
+
+Private Sub edtPin_FocusChanged (HasFocus As Boolean)
+	ime.ShowKeyboard(edtPin)
+End Sub
+
+Private Sub btnPinContinue_Click
+	If edtPin.Text <> Starter.driverId Then
+		ToastMessageShow("Pincode onjuist", False)
+		Starter.enterPinCount = Starter.enterPinCount + 1
+		If Starter.enterPinCount >= 3 Then
+			Msgbox2Async("2 foutive pogingen, DistriRijden wordt afgesloten", "DIstriRijden", "Oke", "", "", Null, "")
+			Wait For Msgbox_Result (Result As Int)
+			If Result = DialogResponse.POSITIVE Then
+				Activity.Finish
+			End If
+		End If
+		edtPin.Text = ""
+	Else
+		HidePinDialog
+		Sleep(300)
+		StartActivity(DriverSelectRoute)
+	End If
+	
+End Sub
+
+Private Sub btnPinCancel_Click
+	HidePinDialog
+End Sub
+
+Private Sub HidePinDialog
+	ime.HideKeyboard
+	Sleep(500)
+	pnlDriverPin.SetLayoutAnimated(500, 0dip, Activity.Height+300dip, Activity.Width, Activity.Height)
 End Sub

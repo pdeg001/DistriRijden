@@ -6,16 +6,12 @@ Version=10.7
 @EndOfDesignText@
 Sub Class_Globals
 	Private FTP As FTP
-	Private FtpArticleFolder As String = "/user_jongens/data"
-	Private localArticleFolder As String = Starter.filesFolder&"/article/"
-	Private fileName As String = "artikel.json"
+	Private articleFileName As String = "artikel.json"
 End Sub
 
 'Initializes the object. You can add parameters to this method if needed.
 Public Sub Initialize
-	If File.Exists("", localArticleFolder) = False Then
-		File.MakeDir("", localArticleFolder)
-	End If
+	
 End Sub
 
 Public Sub GetArticles As ResumableSub
@@ -24,7 +20,7 @@ Public Sub GetArticles As ResumableSub
 	FTP.TimeoutMs = 4*1000
 	
 '	wait for (FTP.List(FtpArticleFolder)) Complete (ready As Boolean)
-	FTP.List(FtpArticleFolder)
+	FTP.List(Starter.FtpArticleFolder)
 	wait for (ProcessArtikelJson) complete (ready As Boolean)
 	Return True
 End Sub
@@ -38,14 +34,15 @@ Sub FTP_ListCompleted (ServerPath As String, Success As Boolean, Folders() As FT
 			If Files(i).Name.IndexOf("artikel.json") = -1 Then
 				Continue
 			Else
-				FTP.DownloadFile(FtpArticleFolder &"/"& Files(i).Name, False, "", localArticleFolder&Files(i).Name)
+				FTP.DownloadFile($"${Starter.FtpArticleFolder}/${Files(i).Name}"$, False, Starter.articleFolder, articleFileName)
 				Wait For FTP_DownloadCompleted (ServerPath2 As String, Success As Boolean)
+				Exit
 			End If
 		Next
 	End If
 	FTP.Close
-'	wait for (ProcessArtikelJson) complete (ready As Boolean)
-Return True
+
+	Return True
 End Sub
 
 Sub FTP_DownloadCompleted (ServerPath As String, Success As Boolean) As ResumableSub
@@ -57,7 +54,7 @@ Sub FTP_DownloadCompleted (ServerPath As String, Success As Boolean) As Resumabl
 End Sub
 
 Private Sub ProcessArtikelJson As ResumableSub
-	If File.Exists(localArticleFolder, fileName) = False Then
+	If File.Exists(Starter.articleFolder, articleFileName) = False Then
 		Return True
 	End If
 	
@@ -72,7 +69,7 @@ Private Sub ProcessArtikelJson As ResumableSub
 	
 	Starter.sql.BeginTransaction
 	Dim parser As JSONParser
-	parser.Initialize(File.ReadString(localArticleFolder, fileName))
+	parser.Initialize(File.ReadString(Starter.articleFolder, articleFileName))
 	Dim root As Map = parser.NextObject
 	Dim artikelen As List = root.Get("artikelen")
 	For Each colartikelen As Map In artikelen
