@@ -10,7 +10,7 @@ Version=10.7
 #End Region
 
 Sub Process_Globals
-	Private xui as XUI
+	Private xui As XUI
 End Sub
 
 Sub Globals
@@ -41,6 +41,7 @@ End Sub
 Private Sub GetSelectedOrder
 	clvOrders.Clear
 	Dim orders As String = File.ReadString(Starter.filesFolder&"/routes", $"${Starter.driverSelectedRoute}"$)
+	Log( $"${Starter.driverSelectedRoute}"$)
 	ParseSelectedOrder(orders)
 End Sub
 
@@ -57,19 +58,9 @@ Private Sub ParseSelectedOrder (orderlist As String)
 		Dim orders As List = colroot.Get("orders")
 		For Each colorders As Map In orders
 			Dim klantnr As Int = colorders.Get("klantnr")
-			Log(klantnr)
-'			Dim begin As String = colorders.Get("begin")
-'			Dim eind As String = colorders.Get("eind")
-'			Dim naam As String = colorders.Get("naam")
-'			Dim adres As String = colorders.Get("adres")
-'			Dim postcode As String = colorders.Get("postcode")
-'			Dim woonplaats As String = colorders.Get("woonplaats")
-'			Dim tel1 As String = colorders.Get("tel1")
-'			Dim tel2 As String = colorders.Get("tel2")
-'			Dim opm As String = colorders.Get("opm")
 			
 			'agg. all orders for same customer, add order count
-			If currKlantNr = "" Or currKlantNr = klantnr Then
+			If currKlantNr = "" Or currKlantNr = klantnr Then 'loop until klantnr <> currKlantNr
 				currKlantNr = klantnr
 				orderCount = orderCount + 1
 				
@@ -87,17 +78,29 @@ Private Sub ParseSelectedOrder (orderlist As String)
 			Else
 				clvOrders.Add(CreateOrderPanel(currKlantNr, begin, eind, naam, _
 				adres, postcode, woonplaats,tel1, tel2, opm, orderCount),"")
-				currKlantNr = ""
-				orderCount = 0
+			
+				currKlantNr = klantnr
+				Dim begin As String = colorders.Get("begin")
+				Dim eind As String = colorders.Get("eind")
+				Dim naam As String = colorders.Get("naam")
+				Dim adres As String = colorders.Get("adres")
+				Dim postcode As String = colorders.Get("postcode")
+				Dim woonplaats As String = colorders.Get("woonplaats")
+				Dim tel1 As String = colorders.Get("tel1")
+				Dim tel2 As String = colorders.Get("tel2")
+				Dim opm As String = colorders.Get("opm")
+				orderCount = 1
+				Continue
 			End If
-						
-			Next
-			clvOrders.Add(CreateOrderPanel(currKlantNr, begin, eind, naam, _
-				adres, postcode, woonplaats,tel1, tel2, opm, orderCount),"")
-			currKlantNr = ""
-			orderCount = 0
 		Next
-	End Sub
+		
+		'push last order to the list
+		clvOrders.Add(CreateOrderPanel(currKlantNr, begin, eind, naam, _
+				adres, postcode, woonplaats,tel1, tel2, opm, orderCount),"")
+			
+		orderCount = 1
+	Next
+End Sub
 
 Private Sub CreateOrderPanel(klantnr As String, begin As String, eind As String, _
 	naam As String, adres As String, postcode As String, woonplaats As String, _
