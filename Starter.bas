@@ -10,31 +10,30 @@ Version=9.9
 #End Region
 
 Sub Process_Globals
-	'driver route
-	Type driverRoute(route As String, chauffeur As String, pin As String)
-	Public lstDriverRoute As List
-	
+	'general variables
 	Private rp As RuntimePermissions
-	Private FTP As FTP
-	
-	'article folder paths
-	Public articleFolder As String
-	Public FtpArticleFolder As String = "/user_jongens/data"
-	
-	Public ftpFolder As String = "apps.distridata.nl"
-	Public ftpPort As Int = 21
-	Public ftpName As String = "leverapp"
-	Public xFileName As String = "9OaiP6BA"
-	
 	Public currDateFormat As String = "dd-MM-yyyy HH:mm"
 	Public filesFolder As String
 	Public sql As SQL
 	Public noFtp As Boolean = True
 	
+	'FTP variables
+	Private FTP As FTP
+	Public articleFolder As String
+	Public FtpArticleFolder As String = "/user_jongens/data"
+	Public ftpFolder As String = "apps.distridata.nl"
+	Public ftpPort As Int = 21
+	Public ftpName As String = "leverapp"
+	Public xFileName As String = "9OaiP6BA"
+	
+	'driver variables
+	Type driverRoute(route As String, chauffeur As String, pin As String)
+	Public lstDriverRoute As List
 	Public driverId As String
 	Public enterPinCount As Int = 0
 	Public driverRoutes As String
-	Public driverSelectedRoute as String
+	Public driverSelectedRoute As String
+	Public driverOrderList as List
 	
 End Sub
 
