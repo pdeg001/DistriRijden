@@ -53,6 +53,7 @@ Private Sub ParseSelectedOrder (orderlist As String)
 	
 	parser.Initialize(orderlist)
 	Dim root As List = parser.NextArray
+	
 	For Each colroot As Map In root
 		orderCount = 0
 		Dim orders As List = colroot.Get("orders")
@@ -73,6 +74,7 @@ Private Sub ParseSelectedOrder (orderlist As String)
 				Dim tel1 As String = colorders.Get("tel1")
 				Dim tel2 As String = colorders.Get("tel2")
 				Dim opm As String = colorders.Get("opm")
+				Dim orderNr As String = colorders.Get("ordernr")
 				
 				Continue
 			Else
@@ -100,6 +102,8 @@ Private Sub ParseSelectedOrder (orderlist As String)
 			
 		orderCount = 1
 	Next
+	
+	
 End Sub
 
 Private Sub CreateOrderPanel(klantnr As String, begin As String, eind As String, _
@@ -108,6 +112,7 @@ Private Sub CreateOrderPanel(klantnr As String, begin As String, eind As String,
 	Dim pnl As B4XView = xui.CreatePanel("")
 	pnl.SetLayoutAnimated(0, 0, 0, clvOrders.AsView.Width, 190dip)
 	pnl.LoadLayout("pnlOrder")
+	pnl.Tag = klantnr
 	
 	lblName.Text = $"${klantnr.SubString2(0,3)}.${klantnr.SubString2(3,6)} ${naam} (${OrderCount})"$
 	lblAddress.Text =$"${adres}${CRLF}${postcode} ${woonplaats}${CRLF}${ConcatPhoneNumber(tel1, tel2)}"$
@@ -137,4 +142,9 @@ Private Sub ConcatPhoneNumber(phone1 As String, phone2 As String) As String
 	End If
 	
 	Return ""
+End Sub
+
+
+Private Sub pnlRoute_Click
+	StartActivity(CustomerOrder)
 End Sub
