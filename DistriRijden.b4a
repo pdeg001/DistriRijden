@@ -33,7 +33,7 @@ FileGroup18=Order
 FileGroup19=Route
 FileGroup2=forms\customerOrder
 FileGroup20=forms\customerOrder\tabPanel
-FileGroup21=Default Group
+FileGroup21=forms\customerOrder\tabPanel
 FileGroup3=images
 FileGroup4=data
 FileGroup5=fonts
@@ -43,13 +43,15 @@ FileGroup8=forms\MAIN
 FileGroup9=Order
 Group=Default Group
 Library1=core
+Library10=javaobject
 Library2=json
 Library3=net
-Library4=runtimepermissions
-Library5=sql
-Library6=xui
-Library7=xui views
-Library8=tabstripviewpager
+Library4=okhttputils2
+Library5=runtimepermissions
+Library6=sql
+Library7=tabstripviewpager
+Library8=xui
+Library9=xui views
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="29"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~CreateResourceFromFile(Macro, Core.NetworkClearText)~\n~'End of default text.~\n~~\n~~\n~AddPermission(android.permission.INTERNET)~\n~AddPermission(android.permission.VIBRATE)~\n~AddPermission(android.permission.FOREGROUND_SERVICE)~\n~AddPermission(android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)~\n~SetActivityAttribute(Main, android:windowSoftInputMode, adjustPan|stateHidden)~\n~
 Module1=CustomerOrder
 Module2=distriDb
@@ -57,12 +59,15 @@ Module3=DistriFtpGetArticle
 Module4=DistriFtpGetDriver
 Module5=DriverOrders
 Module6=DriverSelectRoute
-Module7=Starter
+Module7=GenFunctions
+Module8=Starter
 NumberOfFiles=21
-NumberOfLibraries=8
-NumberOfModules=7
+NumberOfLibraries=10
+NumberOfModules=8
 Version=10.7
 @EndOfDesignText@
+'CLEAN UNSED CODE & VARIABLES
+
 #Region  Project Attributes 
 	#ApplicationLabel: Distri Rijden
 	#VersionCode: 1

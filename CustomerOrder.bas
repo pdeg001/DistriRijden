@@ -34,7 +34,6 @@ Sub Activity_Create(FirstTime As Boolean)
 	GetButtonPanelDimensions
 	CreateNavButtons
 	
-	
 	orderTab.LoadLayout("tabLeveringInfo", "")
 	orderTab.LoadLayout("tabOrder", "")
 
@@ -62,18 +61,18 @@ Private Sub CreateNavButtons
 	Dim top As Int = 0
 	
 	'lever info
-	top = CreateNavLabel("LeverInfo", "Leverings Info", top)
+	top = CreateNavLabel("LeverInfo", "Leverings Info", top, 0)
 	'Orders
-	top = CreateNavLabel("Orders", "Orders", top)
+	top = CreateNavLabel("Orders", "Orders", top, 1)
 	'Retour emballage
-	top = CreateNavLabel("RetourEmballage", "Retour emballage", top)
+	top = CreateNavLabel("RetourEmballage", "Retour emballage", top, 2)
 	'Retouren
-	top = CreateNavLabel("Retouren", "Retouren", top)
+	top = CreateNavLabel("Retouren", "Retouren", top, 3)
 	'Opmerking
-	top = CreateNavLabel("Opmerking", "Opmerking", top)
+	top = CreateNavLabel("Opmerking", "Opmerking", top, 4)
 End Sub
 
-Private Sub CreateNavLabel (event As String, buttonText As String, top As Int) As Int
+Private Sub CreateNavLabel (event As String, buttonText As String, top As Int, tag As String) As Int
 	Dim pnl As B4XView = xui.CreatePanel(event)
 	pnl.SetLayoutAnimated(0, 0, 0, pnlNavButtonsWidth, navButtonHeight)
 	pnl.LoadLayout("customerNaveButton")
@@ -155,4 +154,8 @@ Private Sub EnableButtonActive(showActive As Boolean)
 			lblActive.SetVisibleAnimated(300, showActive)
 		End If
 	Next
+End Sub
+
+Private Sub orderTab_PageSelected (Position As Int)
+	Log(Position)
 End Sub

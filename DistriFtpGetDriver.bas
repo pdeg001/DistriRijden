@@ -106,7 +106,7 @@ Private Sub ParseRouteJsonGetDriver(routeTxt As String)' As ResumableSub
 		Dim route As String = colroot.Get("route")
 '		Dim nr As Int = colroot.Get("nr")
 		Dim pin As String = colroot.Get("pin")
-		Dim kenteken As String = colroot.Get("kenteken")
+'		Dim kenteken As String = colroot.Get("kenteken")
 		Dim chauffeur As String = colroot.Get("chauffeur")
 '		Dim digi As Int = colroot.Get("digi")
 '		Log($"CHAUFFEUR : ${chauffeur} KENTEKEN : ${kenteken}"$)

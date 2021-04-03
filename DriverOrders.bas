@@ -14,6 +14,7 @@ Sub Process_Globals
 End Sub
 
 Sub Globals
+	'Views
 	Private lblHeader As Label
 	Private lblHeader1 As Label
 	Private clvOrders As CustomListView
@@ -22,6 +23,7 @@ Sub Globals
 	Private lblCity As Label
 	Private lblName As Label
 	Private pnlRoute As Panel
+	Private lblShowOnGmap As Label
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -41,7 +43,7 @@ End Sub
 Private Sub GetSelectedOrder
 	clvOrders.Clear
 	Dim orders As String = File.ReadString(Starter.filesFolder&"/routes", $"${Starter.driverSelectedRoute}"$)
-	Log( $"${Starter.driverSelectedRoute}"$)
+'	Log( $"${Starter.driverSelectedRoute}"$)
 	ParseSelectedOrder(orders)
 End Sub
 
@@ -110,7 +112,7 @@ Private Sub CreateOrderPanel(klantnr As String, begin As String, eind As String,
 	naam As String, adres As String, postcode As String, woonplaats As String, _
 	tel1 As String, tel2 As String, opm As String, OrderCount As String) As Panel
 	Dim pnl As B4XView = xui.CreatePanel("")
-	pnl.SetLayoutAnimated(0, 0, 0, clvOrders.AsView.Width, 190dip)
+	pnl.SetLayoutAnimated(0, 0, 0, clvOrders.AsView.Width, 160dip)
 	pnl.LoadLayout("pnlOrder")
 	pnl.Tag = klantnr
 	
@@ -118,6 +120,7 @@ Private Sub CreateOrderPanel(klantnr As String, begin As String, eind As String,
 	lblAddress.Text =$"${adres}${CRLF}${postcode} ${woonplaats}${CRLF}${ConcatPhoneNumber(tel1, tel2)}"$
 	lblBetween.Text = $"${ConcatBeginEnd(begin, eind)}"$
 	lblCity.Text = opm.Replace("|", " ")
+	lblShowOnGmap.Tag = $"${adres} ${postcode} ${woonplaats}"$
 	
 	Return pnl
 End Sub
@@ -147,4 +150,28 @@ End Sub
 
 Private Sub pnlRoute_Click
 	StartActivity(CustomerOrder)
+End Sub
+
+	
+Public Sub GetAddressCoords(address As String)
+	Private url As String
+	Private job As HttpJob
+	
+	url = $"${Starter.urlNominatim}${address}?format=json&addressdetails=1&limit=1"$
+	job.Initialize("", Me)
+	job.Download(url)
+	
+	Wait For (job) jobDone(jobDone As HttpJob)
+	
+	If jobDone.Success Then
+		wait for (GenFunctions.ParseAddressCoords(job.GetString)) Complete (result As Boolean)
+	Else
+		Log(job.ErrorMessage)	
+	End If
+	
+End Sub
+
+Private Sub lblShowOnGmap_Click
+	Dim lbl As Label = Sender
+	GetAddressCoords(lbl.Tag)
 End Sub

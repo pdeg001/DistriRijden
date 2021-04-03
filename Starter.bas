@@ -10,12 +10,20 @@ Version=9.9
 #End Region
 
 Sub Process_Globals
+	'ENUM like variables
+	Dim Const _
+    custOrder_Button=0, _
+    custOrder_Elbow=1, _
+    custOrder_Textbox=2, _
+    custOrder_Slider=3 As String  
+	
 	'general variables
 	Private rp As RuntimePermissions
 	Public currDateFormat As String = "dd-MM-yyyy HH:mm"
 	Public filesFolder As String
 	Public sql As SQL
 	Public noFtp As Boolean = True
+	Public urlNominatim As String = "https://nominatim.openstreetmap.org/search/"
 	
 	'FTP variables
 	Private FTP As FTP
@@ -33,7 +41,7 @@ Sub Process_Globals
 	Public enterPinCount As Int = 0
 	Public driverRoutes As String
 	Public driverSelectedRoute As String
-	Public driverOrderList as List
+	Public driverOrderList As List
 	
 End Sub
 
@@ -82,3 +90,5 @@ End Sub
 Private Sub SetFileFolders
 	articleFolder = $"${filesFolder}/article/"$
 End Sub
+
+
