@@ -36,12 +36,14 @@ Sub Process_Globals
 	
 	'driver variables
 	Type driverRoute(route As String, chauffeur As String, pin As String)
+	Type driverCustomer(customerNumber As String, custormerName As String, route As String,orderCount As String)
 	Public lstDriverRoute As List
 	Public driverId As String
 	Public enterPinCount As Int = 0
 	Public driverRoutes As String
 	Public driverSelectedRoute As String
 	Public driverOrderList As List
+	Public lstSelectedCustInfo As driverCustomer
 	
 End Sub
 
@@ -90,5 +92,6 @@ End Sub
 Private Sub SetFileFolders
 	articleFolder = $"${filesFolder}/article/"$
 End Sub
+
 
 
