@@ -149,7 +149,6 @@ End Sub
 
 Private Sub pnlRoute_Click
 	Dim pnl As Panel = Sender
-	Log(pnl.Tag)
 	Starter.lstSelectedCustInfo.Initialize
 	Starter.lstSelectedCustInfo = pnl.Tag
 	StartActivity(CustomerOrder)

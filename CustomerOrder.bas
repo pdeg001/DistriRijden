@@ -36,6 +36,7 @@ Sub Globals
 	Private lblOrderNr As Label
 	Private pnlOrderNr As Panel
 	Private lblRemark As Label
+	Private lblArtRowNr As Label
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -65,9 +66,9 @@ Private Sub GetButtonPanelDimensions
 	pnlNavButtonsWidth = pnlNavButtons.Width
 	navButtonHeight = pnlNavButtonsHeight/5
 	
-	Log($"button panel heigth : ${pnlNavButtonsHeight}
-	button panel width : ${pnlNavButtonsWidth}
-	button height : ${navButtonHeight}"$)
+'	Log($"button panel heigth : ${pnlNavButtonsHeight}
+'	button panel width : ${pnlNavButtonsWidth}
+'	button height : ${navButtonHeight}"$)
 End Sub
 
 Private Sub CreateNavButtons
@@ -187,7 +188,6 @@ Private Sub GetRoute
 	End If
 	
 	routeJson = File.ReadString(Starter.filesFolder&"/routes/", route)
-'	Log(routeJson)
 	
 	Dim parser As JSONParser
 	parser.Initialize(routeJson)
@@ -237,8 +237,9 @@ Private Sub GetRoute
 '			Dim volgnr As Int = colorders.Get("volgnr")
 '			Dim artikelen As List = colorders.Get("artikelen")
 			
-			
+			Dim rowNumber As Int = 0
 			For Each colartikelen As Map In artikelen
+				rowNumber = rowNumber + 1
 '				Dim tht As String = colartikelen.Get("tht")
 '				Dim agf As Int = colartikelen.Get("agf")
 '				Dim ver As Double = colartikelen.Get("ver")
@@ -262,7 +263,7 @@ Private Sub GetRoute
 				Dim artnr As String = colartikelen.Get("artnr")
 				Dim oms As String = colartikelen.Get("oms")
 				Dim pack As String = colartikelen.Get("pack")
-				clvArticle.Add(CreateArticlePanel(oms, artnr, pack), "")
+				clvArticle.Add(CreateArticlePanel(oms, artnr, pack, NumberFormat(rowNumber,3,0)), "")
 			Next
 '			Dim kopm As List = colorders.Get("kopm")
 '			Dim retouren As List = colorders.Get("retouren")
@@ -309,7 +310,7 @@ Private Sub CreateOrderNrPanel(orderNr As String, itemCount As String) As Panel
 	Return pnl
 End Sub
 
-Private Sub CreateArticlePanel(oms As String, artnr As String, pack As String) As Panel
+Private Sub CreateArticlePanel(oms As String, artnr As String, pack As String, rowNumber As String) As Panel
 	Dim pnl As B4XView = xui.CreatePanel("")
 	pnl.SetLayoutAnimated(0, 0, 0, clvArticle.AsView.Width, 75dip)
 	pnl.LoadLayout("pnlOrderArticle")
@@ -317,6 +318,7 @@ Private Sub CreateArticlePanel(oms As String, artnr As String, pack As String) A
 	lblArticleName.Text = oms
 	lblARticleQuantity.Text = 1
 	lblArticleMetadata.Text = $"${GenFunctions.FormatArticleNumber(artnr)} | ${pack}"$
+	lblArtRowNr.Text = rowNumber
 	
 	Return pnl
 End Sub

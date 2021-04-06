@@ -98,6 +98,8 @@ Sub FormatArticleNumber(articleNr As String) As String
 End Sub
 
 Sub FormatCustomerNumber(customerNr As String) As String
+	if customerNr = "" Then return "0000000"
+	
 	If customerNr.Length < 6 Then customerNr = $"0${customerNr}"$
 	Return $"${customerNr.SubString2(0,3)}.${customerNr.SubString2(3,6)}"$
 End Sub
