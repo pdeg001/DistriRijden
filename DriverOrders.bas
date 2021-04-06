@@ -114,8 +114,8 @@ Private Sub CreateOrderPanel(klantnr As String, begin As String, eind As String,
 	Dim pnl As B4XView = xui.CreatePanel("")
 	pnl.SetLayoutAnimated(0, 0, 0, clvOrders.AsView.Width, 160dip)
 	pnl.LoadLayout("pnlOrder")
-	pnl.Tag = klantnr
-	
+	pnl.Tag = CreatedriverCustomer(klantnr, naam, Starter.driverSelectedRoute, OrderCount)
+	pnlRoute.Tag = CreatedriverCustomer(klantnr, naam, Starter.driverSelectedRoute, OrderCount)
 	lblName.Text = $"${klantnr.SubString2(0,3)}.${klantnr.SubString2(3,6)} ${naam} (${OrderCount})"$
 	lblAddress.Text =$"${adres}${CRLF}${postcode} ${woonplaats}${CRLF}${ConcatPhoneNumber(tel1, tel2)}"$
 	lblBetween.Text = $"${ConcatBeginEnd(begin, eind)}"$
@@ -147,11 +147,13 @@ Private Sub ConcatPhoneNumber(phone1 As String, phone2 As String) As String
 	Return ""
 End Sub
 
-
 Private Sub pnlRoute_Click
+	Dim pnl As Panel = Sender
+	Log(pnl.Tag)
+	Starter.lstSelectedCustInfo.Initialize
+	Starter.lstSelectedCustInfo = pnl.Tag
 	StartActivity(CustomerOrder)
 End Sub
-
 	
 Public Sub GetAddressCoords(address As String)
 	Private url As String
@@ -174,4 +176,14 @@ End Sub
 Private Sub lblShowOnGmap_Click
 	Dim lbl As Label = Sender
 	GetAddressCoords(lbl.Tag)
+End Sub
+
+Public Sub CreatedriverCustomer (customerNumber As String, custormerName As String, route As String, orderCount As String) As driverCustomer
+	Dim t1 As driverCustomer
+	t1.Initialize
+	t1.customerNumber = customerNumber
+	t1.custormerName = custormerName
+	t1.route = route
+	t1.orderCount = orderCount
+	Return t1
 End Sub

@@ -75,11 +75,11 @@ Private Sub ParseRoute(route As String)
 		Next
 		
 		
-		clvRoutes.Add(CreateClvPanel(routeNummer, routeNaam, chauffeur, kenteken, NumberFormat2(orderCount,3,0,0, False)), "")
+		clvRoutes.Add(CreateClvPanel(routeNummer, routeNaam, kenteken, NumberFormat2(orderCount,3,0,0, False)), "")
 	Next
 End Sub
 
-Private Sub CreateClvPanel(routeNumber As String, routeName As String, driver As String, plate As String, orderCount As String) As Panel
+Private Sub CreateClvPanel(routeNumber As String, routeName As String, plate As String, orderCount As String) As Panel
 	Dim pnl As B4XView = xui.CreatePanel("")
 	pnl.SetLayoutAnimated(0, 0, 0, clvRoutes.AsView.Width, 125dip)
 	pnl.LoadLayout("pnlSelectRoute")

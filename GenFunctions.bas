@@ -86,3 +86,18 @@ Sub ShowCustomToast(Text As Object, LongDuration As Boolean, BackgroundColor As 
 	' Bit.Or(Gravity.CENTER_HORIZONTAL, Gravity.CENTER_VERTICAL), 0, 0))
 	toast.RunMethod("show", Null)
 End Sub
+
+Sub FormatOrderNr(orderNr As String) As String
+	If orderNr.Length < 6 Then orderNr = $"0${orderNr}"$
+	Return $"${orderNr.SubString2(0,3)}.${orderNr.SubString2(3,6)}"$
+End Sub
+
+Sub FormatArticleNumber(articleNr As String) As String
+	If articleNr.Length < 7 Then articleNr = $"0${articleNr}"$
+	Return $"${articleNr.SubString2(0,2)}.${articleNr.SubString2(2,5)}.${articleNr.SubString2(5,7)}"$
+End Sub
+
+Sub FormatCustomerNumber(customerNr As String) As String
+	If customerNr.Length < 6 Then customerNr = $"0${customerNr}"$
+	Return $"${customerNr.SubString2(0,3)}.${customerNr.SubString2(3,6)}"$
+End Sub
