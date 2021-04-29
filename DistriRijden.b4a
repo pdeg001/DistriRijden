@@ -77,7 +77,7 @@ Version=10.7
 	#VersionCode: 1
 	#VersionName: 0.01
 	'SupportedOrientations possible values: unspecified, landscape or portrait.
-	#SupportedOrientations: unspecified
+	#SupportedOrientations: landscape
 	#CanInstallToExternalStorage: False
 #End Region
 

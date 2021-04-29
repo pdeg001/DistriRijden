@@ -22,7 +22,7 @@ Sub Process_Globals
 	Public currDateFormat As String = "dd-MM-yyyy HH:mm"
 	Public filesFolder As String
 	Public sql As SQL
-	Public noFtp As Boolean = True
+	Public noFtp As Boolean = False
 	Public urlNominatim As String = "https://nominatim.openstreetmap.org/search/"
 	
 	'FTP variables
