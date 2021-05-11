@@ -75,7 +75,7 @@ Version=10.7
 #Region  Project Attributes 
 	#ApplicationLabel: Distri Rijden
 	#VersionCode: 1
-	#VersionName: 0.01
+	#VersionName: 0.02
 	'SupportedOrientations possible values: unspecified, landscape or portrait.
 	#SupportedOrientations: landscape
 	#CanInstallToExternalStorage: False
