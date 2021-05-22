@@ -8,7 +8,7 @@ Version=10.7
 Sub Class_Globals
 	Private FTP As FTP
 	Private driversFolder As String = "/user_jongens/routes"
-	Private localRouteFolder As String = Starter.filesFolder&"/routes/"
+	Private routeFolder As String = Starter.routesFolder 'Starter.filesFolder&"/routes/"
 	Private currFtpRoute As String
 	Private lstRoutes As List
 End Sub
@@ -19,11 +19,11 @@ Public Sub Initialize
 End Sub
 
 Private Sub DeleteRoutes
-	If File.IsDirectory(localRouteFolder, "") = False Then
-		File.MakeDir(localRouteFolder, "")
+	If File.IsDirectory(routeFolder, "") = False Then
+		File.MakeDir(routeFolder, "")
 	End If
-	For Each route As String In File.ListFiles(localRouteFolder)
-		File.Delete(localRouteFolder, route)
+	For Each route As String In File.ListFiles(routeFolder)
+		File.Delete(routeFolder, route)
 	Next
 End Sub
 
@@ -60,7 +60,7 @@ Public Sub GetDrivers As ResumableSub
 				routeCount = routeCount + 1
 			
 				'download file and wait for it to complete
-				FTP.DownloadFile(File.Combine(driversFolder,Files(i).Name), False, "", $"${localRouteFolder}${Files(i).Name}"$)
+				FTP.DownloadFile(File.Combine(driversFolder,Files(i).Name), False, "", $"${routeFolder}${Files(i).Name}"$)
 				Wait For FTP_DownloadCompleted (ServerPath As String, Success As Boolean)
 			End If
 		Next
@@ -90,10 +90,10 @@ Sub FTP_DownloadCompleted (ServerPath As String, Success As Boolean) As Resumabl
 	Return True
 End Sub
 
-Private Sub ProcessDriverFromRoute As ResumableSub
+public Sub ProcessDriverFromRoute As ResumableSub
 	Starter.lstDriverRoute.Initialize
-	For Each route As String In File.ListFiles(localRouteFolder)
-		ParseRouteJsonGetDriver(File.ReadString(localRouteFolder, route))
+	For Each route As String In File.ListFiles(routeFolder)
+		ParseRouteJsonGetDriver(File.ReadString(routeFolder, route))
 	Next
 	Return True
 End Sub

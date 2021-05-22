@@ -53,7 +53,8 @@ Sub FTP_DownloadCompleted (ServerPath As String, Success As Boolean) As Resumabl
 	Return True
 End Sub
 
-Private Sub ProcessArtikelJson As ResumableSub
+public Sub ProcessArtikelJson As ResumableSub
+	
 	If File.Exists(Starter.articleFolder, articleFileName) = False Then
 		Return True
 	End If
@@ -63,15 +64,17 @@ Private Sub ProcessArtikelJson As ResumableSub
 	End If
 	
 	Starter.sql.ExecNonQuery("DELETE FROM artikel")
+	Sleep(100)
 	
 	Dim qry As String = $"INSERT INTO artikel (artnr, omschrijving, alfa, pack, statie, ean1, ean2, ean3) 
 	VALUES (?, ?, ?, ?, ?, ?, ?, ?)"$
 	
-	Starter.sql.BeginTransaction
 	Dim parser As JSONParser
 	parser.Initialize(File.ReadString(Starter.articleFolder, articleFileName))
 	Dim root As Map = parser.NextObject
 	Dim artikelen As List = root.Get("artikelen")
+	
+	Starter.sql.BeginTransaction
 	For Each colartikelen As Map In artikelen
 		Dim ean1 As String = colartikelen.Get("ean1")
 		Dim oms As String = colartikelen.Get("oms")
@@ -83,10 +86,11 @@ Private Sub ProcessArtikelJson As ResumableSub
 		Dim ean2 As String = colartikelen.Get("ean2")
 		
 		Starter.sql.ExecNonQuery2(qry, Array As String(artnr, oms, alfa, pack, statie, ean1, ean2, ean3))
-		'Log($"${artnr} ${oms}"$)
 	Next
 	Starter.sql.TransactionSuccessful
 	Starter.sql.EndTransaction
+
+#region ingnore
 '	Dim emballage As List = root.Get("emballage")
 '	For Each colemballage As Map In emballage
 '		Dim oms As String = colemballage.Get("oms")
@@ -97,6 +101,7 @@ Private Sub ProcessArtikelJson As ResumableSub
 '	Dim reden As List = root.Get("reden")
 '	For Each colreden As String In reden
 '	Next
+#end region	
 	
 	Return True
 End Sub

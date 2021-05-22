@@ -20,7 +20,7 @@ Sub Process_Globals
 	'general variables
 	Private rp As RuntimePermissions
 	Public currDateFormat As String = "dd-MM-yyyy HH:mm"
-	Public filesFolder As String
+	Public filesFolder, routesFolder, articlesFolder As String
 	Public sql As SQL
 	Public noFtp As Boolean = True
 	Public urlNominatim As String = "https://nominatim.openstreetmap.org/search/"
@@ -91,6 +91,7 @@ End Sub
 
 Private Sub SetFileFolders
 	articleFolder = $"${filesFolder}/article/"$
+	routesFolder = $"${filesFolder}/routes/"$
 End Sub
 
 

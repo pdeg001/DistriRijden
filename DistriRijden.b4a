@@ -1,32 +1,85 @@
-﻿Build1=Default,nl.distridata.distririjden
-File1=customerNaveButton.bal
-File10=pnlOrderArticle.bal
-File11=pnlOrderOrderNr.bal
-File12=pnlSelectRoute.bal
-File13=Raleway-Bold.ttf
-File14=Raleway-Italic.ttf
-File15=Raleway-Italic-VariableFont_wght.ttf
-File16=Raleway-Medium.ttf
-File17=Raleway-Regular.ttf
-File18=Raleway-Thin.ttf
-File19=Raleway-VariableFont_wght.ttf
-File2=customerOrderMain.bal
-File20=RouteOrder.bal
-File21=SelectRoute.bal
-File22=tabLeveringInfo.bal
-File23=tabOrder.bal
-File3=dd_logo.png
-File4=disrtirijden.db
-File5=galanogrotesquemedium.ttf
-File6=galanogrotesqueregular.ttf
-File7=main.bal
-File8=pnlDriver.bal
-File9=pnlOrder.bal
-FileGroup1=forms\customerOrder
-FileGroup10=forms\customerOrder\tabPanel
+﻿Build1=Default,nl.distridataDEV.distririjden
+File1=artikel.json
+File10=pnlOrder.bal
+File11=pnlOrderArticle.bal
+File12=pnlOrderOrderNr.bal
+File13=pnlSelectRoute.bal
+File14=Raleway-Bold.ttf
+File15=Raleway-Italic.ttf
+File16=Raleway-Italic-VariableFont_wght.ttf
+File17=Raleway-Medium.ttf
+File18=Raleway-Regular.ttf
+File19=Raleway-Thin.ttf
+File2=customerNaveButton.bal
+File20=Raleway-VariableFont_wght.ttf
+File21=route01.txt
+File22=route02.txt
+File23=route03.txt
+File24=route04A.txt
+File25=route05.txt
+File26=route06.txt
+File27=route07.txt
+File28=route08.txt
+File29=route09A.txt
+File3=customerOrderMain.bal
+File30=route10.txt
+File31=route12.txt
+File32=route14.txt
+File33=route16.txt
+File34=route17.txt
+File35=route19.txt
+File36=route20.txt
+File37=route21A.txt
+File38=route23A.txt
+File39=route25.txt
+File4=dd_logo.png
+File40=route26.txt
+File41=route27.txt
+File42=route28.txt
+File43=route30.txt
+File44=route32.txt
+File45=route33.txt
+File46=route34.txt
+File47=route35.txt
+File48=route39.txt
+File49=route40.txt
+File5=disrtirijden.db
+File50=route42.txt
+File51=route43.txt
+File52=route44.txt
+File53=route45.txt
+File54=route47.txt
+File55=route50A.txt
+File56=route53.txt
+File57=route54.txt
+File58=route55.txt
+File59=route56.txt
+File6=galanogrotesquemedium.ttf
+File60=route57.txt
+File61=route60.txt
+File62=route65A.txt
+File63=route67.txt
+File64=route68.txt
+File65=route69A.txt
+File66=route72.txt
+File67=route73A.txt
+File68=route75.txt
+File69=route80.txt
+File7=galanogrotesqueregular.ttf
+File70=route90.txt
+File71=route91.txt
+File72=route93.txt
+File73=RouteOrder.bal
+File74=SelectRoute.bal
+File75=tabLeveringInfo.bal
+File76=tabOrder.bal
+File8=main.bal
+File9=pnlDriver.bal
+FileGroup1=data
+FileGroup10=Order
 FileGroup11=forms\customerOrder\tabPanel
-FileGroup12=Route
-FileGroup13=fonts
+FileGroup12=forms\customerOrder\tabPanel
+FileGroup13=Route
 FileGroup14=fonts
 FileGroup15=fonts
 FileGroup16=fonts
@@ -34,17 +87,70 @@ FileGroup17=fonts
 FileGroup18=fonts
 FileGroup19=fonts
 FileGroup2=forms\customerOrder
-FileGroup20=Order
-FileGroup21=Route
-FileGroup22=forms\customerOrder\tabPanel
-FileGroup23=forms\customerOrder\tabPanel
-FileGroup3=images
-FileGroup4=data
-FileGroup5=fonts
+FileGroup20=fonts
+FileGroup21=dev-routes
+FileGroup22=dev-routes
+FileGroup23=dev-routes
+FileGroup24=dev-routes
+FileGroup25=dev-routes
+FileGroup26=dev-routes
+FileGroup27=dev-routes
+FileGroup28=dev-routes
+FileGroup29=dev-routes
+FileGroup3=forms\customerOrder
+FileGroup30=dev-routes
+FileGroup31=dev-routes
+FileGroup32=dev-routes
+FileGroup33=dev-routes
+FileGroup34=dev-routes
+FileGroup35=dev-routes
+FileGroup36=dev-routes
+FileGroup37=dev-routes
+FileGroup38=dev-routes
+FileGroup39=dev-routes
+FileGroup4=images
+FileGroup40=dev-routes
+FileGroup41=dev-routes
+FileGroup42=dev-routes
+FileGroup43=dev-routes
+FileGroup44=dev-routes
+FileGroup45=dev-routes
+FileGroup46=dev-routes
+FileGroup47=dev-routes
+FileGroup48=dev-routes
+FileGroup49=dev-routes
+FileGroup5=data
+FileGroup50=dev-routes
+FileGroup51=dev-routes
+FileGroup52=dev-routes
+FileGroup53=dev-routes
+FileGroup54=dev-routes
+FileGroup55=dev-routes
+FileGroup56=dev-routes
+FileGroup57=dev-routes
+FileGroup58=dev-routes
+FileGroup59=dev-routes
 FileGroup6=fonts
-FileGroup7=forms\MAIN
+FileGroup60=dev-routes
+FileGroup61=dev-routes
+FileGroup62=dev-routes
+FileGroup63=dev-routes
+FileGroup64=dev-routes
+FileGroup65=dev-routes
+FileGroup66=dev-routes
+FileGroup67=dev-routes
+FileGroup68=dev-routes
+FileGroup69=dev-routes
+FileGroup7=fonts
+FileGroup70=dev-routes
+FileGroup71=dev-routes
+FileGroup72=dev-routes
+FileGroup73=Order
+FileGroup74=Route
+FileGroup75=forms\customerOrder\tabPanel
+FileGroup76=forms\customerOrder\tabPanel
 FileGroup8=forms\MAIN
-FileGroup9=Order
+FileGroup9=forms\MAIN
 Group=Default Group
 Library1=core
 Library10=javaobject
@@ -65,7 +171,7 @@ Module5=DriverOrders
 Module6=DriverSelectRoute
 Module7=GenFunctions
 Module8=Starter
-NumberOfFiles=23
+NumberOfFiles=76
 NumberOfLibraries=10
 NumberOfModules=8
 Version=10.7
@@ -73,11 +179,11 @@ Version=10.7
 'CLEAN UNSED CODE & VARIABLES
 
 #Region  Project Attributes 
-	#ApplicationLabel: Distri Rijden
+	#ApplicationLabel: Distri Rijden - DEV
 	#VersionCode: 1
 	#VersionName: 0.01
 	'SupportedOrientations possible values: unspecified, landscape or portrait.
-	#SupportedOrientations: unspecified
+	#SupportedOrientations: landscape
 	#CanInstallToExternalStorage: False
 #End Region
 
@@ -92,6 +198,7 @@ Sub Process_Globals
 	Private xui As XUI
 	Private clsFtpDriver As DistriFtpGetDriver
 	Private clsFtpArtilce As DistriFtpGetArticle
+	Private clsDb As distriDb
 End Sub
 
 Sub Globals
@@ -115,13 +222,15 @@ Sub Globals
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
+	CreateAppFolders
 	clsFtpDriver.Initialize
 	clsFtpArtilce.Initialize
+	clsDb.Initialize
 	Activity.LoadLayout("main")
 	
 	pgBar.Value = 0
 	pgBar.EmptyColor = 0xFFFF0007
-	SetArticleUpdate
+'	SetArticleUpdate
 	
 '	ime.Initialize("IME")
 '	ime.AddHeightChangedEvent
@@ -152,16 +261,37 @@ Sub Button1_Click
 		pgBar.UpdateGraphics
 		Sleep(100)
 		Wait For (clsFtpArtilce.GetArticles) Complete (ready As Boolean)
+		wait for (clsFtpDriver.GetDrivers) Complete(ready As Boolean)
+	Else
+		wait for (SetArticleUpdate) complete (result As Boolean)
+		EndProgressAnimation
 	End If
-	wait for (clsFtpDriver.GetDrivers) Complete(ready As Boolean)
-	SetArticleUpdate
 	
 End Sub
 
-Private Sub SetArticleUpdate
+Private Sub CreateAppFolders
+	If File.IsDirectory(Starter.routesFolder, "") = False Then
+		File.MakeDir(Starter.routesFolder,  "")
+	End If
+	If File.IsDirectory(Starter.articleFolder, "") = False Then
+		File.MakeDir(Starter.articleFolder,  "")
+	End If
+	
+End Sub
+
+Private Sub SetArticleUpdate As ResumableSub
+	'COPY DEVELOPMENT FILES
+	If Starter.noFtp = True Then
+		File.Copy(File.DirAssets, "artikel.json", Starter.articleFolder, "artikel.json")
+	End If
+	
+	Wait For (clsFtpArtilce.ProcessArtikelJson) Complete (result As Boolean)
+	wait for (clsFtpDriver.ProcessDriverFromRoute) complete (result As Boolean)
+	
 	If File.Exists(Starter.articleFolder, "artikel.json") = True Then
 		lblArtcileUpdate.Text = $"Laatste artikel update : $Date{File.LastModified(Starter.articleFolder, "artikel.json")}"$
 	End If
+	Return True
 End Sub
 
 Public Sub SetProgressBar(lstProgress As List)
