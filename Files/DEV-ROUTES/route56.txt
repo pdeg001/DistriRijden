@@ -1,0 +1,63 @@
+[{"route":"56","naam":"Maxivers 3","user":"054 Anneke","chauffeur":"Maxivers","nr":7,"kenteken":"","pin":"0000","digi":1,"orders":[
+{"ordernr":44776,"klantnr":330947,"volgnr":14,"naam":"AMSTA DE POORT UNIT 8","adres":"AMBACHT 3","postcode":"1511JZ","woonplaats":"OOSTZAAN","land":"Nederland","email":"pakbon@maxivers.nl","email2":"","email3":"","email4":"","email5":"","bestnaam":"","bestordn":"","prijzen":1,"agfprijs":0,"geenemb":0,"tel1":"020-2050599","tel2":"","contant":0,"begin":"0000","eind":"0000","bedrag":0.00,"icodes":0,"done":0,"emballage":[],"retouren":[],"mancos":[],"kopm":[],"opm":"! ELK KLANTNUMMER OP EEN APARTE KAR ZETTEN !|","maand":[
+{"artnr":260042,"price":12.65,"btw":9.00,"ean":8717953054500},
+{"artnr":1001268,"price":2.06,"btw":9.00,"ean":8712800001348},
+{"artnr":1001354,"price":1.96,"btw":9.00,"ean":8712800001058},
+{"artnr":1001502,"price":2.06,"btw":9.00,"ean":8718166031258},
+{"artnr":1001578,"price":1.13,"btw":9.00,"ean":8718166031418},
+{"artnr":1001586,"price":1.34,"btw":9.00,"ean":8718166031432},
+{"artnr":1001601,"price":2.02,"btw":9.00,"ean":8718166031364},
+{"artnr":1002013,"price":1.49,"btw":9.00,"ean":0},
+{"artnr":1003008,"price":1.34,"btw":9.00,"ean":8712800001195},
+{"artnr":1003165,"price":1.90,"btw":9.00,"ean":8712800001225},
+{"artnr":1003313,"price":1.67,"btw":9.00,"ean":8712800001201},
+{"artnr":1050020,"price":1.98,"btw":9.00,"ean":8710624294526},
+{"artnr":2050061,"price":18.08,"btw":9.00,"ean":8722700679295},
+{"artnr":2130102,"price":33.79,"btw":9.00,"ean":8710466285546},
+{"artnr":2150093,"price":4.38,"btw":9.00,"ean":8719200039667},
+{"artnr":2780642,"price":17.51,"btw":9.00,"ean":18710397011617},
+{"artnr":3430303,"price":32.17,"btw":9.00,"ean":2393100010047},
+{"artnr":4314879,"price":1.52,"btw":9.00,"ean":8715426001211},
+{"artnr":4314887,"price":3.30,"btw":9.00,"ean":8715426000191},
+{"artnr":4314928,"price":2.54,"btw":9.00,"ean":8715426004120},
+{"artnr":4314960,"price":1.71,"btw":9.00,"ean":8715426004397},
+{"artnr":4314994,"price":2.04,"btw":9.00,"ean":8715426004113},
+{"artnr":4315017,"price":1.33,"btw":9.00,"ean":8715426004250},
+{"artnr":4330528,"price":17.88,"btw":9.00,"ean":8712092456789},
+{"artnr":4332152,"price":6.75,"btw":9.00,"ean":87187441},
+{"artnr":4338150,"price":4.74,"btw":9.00,"ean":8712092005284},
+{"artnr":4338168,"price":5.53,"btw":9.00,"ean":8712092005338},
+{"artnr":4338192,"price":4.96,"btw":9.00,"ean":8712092005321},
+{"artnr":4372786,"price":12.84,"btw":9.00,"ean":87209204},
+{"artnr":4391273,"price":3.61,"btw":9.00,"ean":8710866076348}
+],
+"artikelen":[
+{"artnr":260042,"oms":"Zuivelr.koffiemlk 7,5gr NL-BIO-01","pack":"Doos 200st","besteld":3.000,"geleverd":3.000,"org":3.000,"ver":0.000,"emb":0,"gew":0,"prijs":12.65,"prbtw":13.78,"btw":9.00,"vervang":0,"afd":18,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"100260042","volg":1},
+{"artnr":1001586,"oms":"Melkunie griesmeelpap","pack":"Bak 500gr","besteld":8.000,"geleverd":8.000,"org":8.000,"ver":0.000,"emb":0,"gew":0,"prijs":1.34,"prbtw":1.46,"btw":9.00,"vervang":0,"afd":36,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"201001586","volg":4},
+{"artnr":1001601,"oms":"Melkunie havermoutpap","pack":"Pak 1lt","besteld":6.000,"geleverd":6.000,"org":6.000,"ver":0.000,"emb":0,"gew":0,"prijs":2.02,"prbtw":2.20,"btw":9.00,"vervang":0,"afd":36,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"201001601","volg":5},
+{"artnr":4314887,"oms":"Aarnink achterham 5x2plak BLK 1","pack":"Pak 113gr","besteld":6.000,"geleverd":6.000,"org":6.000,"ver":0.000,"emb":0,"gew":0,"prijs":3.30,"prbtw":3.59,"btw":9.00,"vervang":0,"afd":36,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"204314887","volg":7},
+{"artnr":4314960,"oms":"Aarnink runderrookvlees 5x2plak","pack":"Pak 83gr","besteld":4.000,"geleverd":4.000,"org":4.000,"ver":0.000,"emb":0,"gew":0,"prijs":1.71,"prbtw":1.86,"btw":9.00,"vervang":0,"afd":36,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"204314960","volg":8},
+{"artnr":4315017,"oms":"Aarnink salami siciliano 5x2plak","pack":"Pak 98gr","besteld":4.000,"geleverd":4.000,"org":4.000,"ver":0.000,"emb":0,"gew":0,"prijs":1.33,"prbtw":1.44,"btw":9.00,"vervang":0,"afd":36,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"204315017","volg":6},
+{"artnr":4338150,"oms":"Kpt Edam 40+ jb 9x2pl 15gr.bun","pack":"Pak 18pl","besteld":12.000,"geleverd":12.000,"org":12.000,"ver":0.000,"emb":0,"gew":0,"prijs":4.74,"prbtw":5.16,"btw":9.00,"vervang":0,"afd":36,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"204338150","volg":2},
+{"artnr":4338192,"oms":"Kpt Gouda48+jb kom 9x2pl 15gr.bun","pack":"Pak 18pl","besteld":6.000,"geleverd":6.000,"org":6.000,"ver":0.000,"emb":0,"gew":0,"prijs":4.96,"prbtw":5.40,"btw":9.00,"vervang":0,"afd":36,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"204338192","volg":3},
+{"artnr":7200017,"oms":"Emb. heen vouwkrat Jongens","pack":"Per stuk","besteld":3.000,"geleverd":3.000,"org":3.000,"ver":0.000,"emb":1,"gew":0,"prijs":7.50,"prbtw":7.50,"btw":0.00,"vervang":0,"afd":99,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"997200017","volg":10}]
+},
+{"ordernr":45026,"klantnr":332545,"volgnr":25,"naam":"LLOYD HOTEL","adres":"AMBACHT 3","postcode":"1511JZ","woonplaats":"OOSTZAAN","land":"Nederland","email":"pakbon@maxivers.nl","email2":"","email3":"","email4":"","email5":"","bestnaam":"","bestordn":"","prijzen":1,"agfprijs":0,"geenemb":0,"tel1":"020-2050599","tel2":"","contant":0,"begin":"0000","eind":"0000","bedrag":0.00,"icodes":0,"done":0,"emballage":[],"retouren":[],"mancos":[],"kopm":[],"opm":"! ELK KLANTNUMMER OP EEN APARTE KAR ZETTEN !|","maand":[
+{"artnr":1001495,"price":14.62,"btw":9.00,"ean":8712800140641},
+{"artnr":1002013,"price":1.12,"btw":9.00,"ean":0},
+{"artnr":1003102,"price":1.25,"btw":9.00,"ean":8712800174189},
+{"artnr":1003313,"price":1.25,"btw":9.00,"ean":8712800001201},
+{"artnr":1040253,"price":9.04,"btw":9.00,"ean":4074800001815},
+{"artnr":1041318,"price":12.89,"btw":9.00,"ean":8711399016702},
+{"artnr":1045617,"price":20.15,"btw":9.00,"ean":8718166032545},
+{"artnr":4220290,"price":17.54,"btw":9.00,"ean":8719033204409},
+{"artnr":4220422,"price":6.73,"btw":9.00,"ean":5412671112671},
+{"artnr":4331170,"price":1.84,"btw":9.00,"ean":8018731001007}
+],
+"artikelen":[
+{"artnr":1002013,"oms":"Campina volle melk pak MAXI","pack":"Pak 1lt","besteld":12.000,"geleverd":12.000,"org":12.000,"ver":0.000,"emb":0,"gew":0,"prijs":1.12,"prbtw":1.22,"btw":9.00,"vervang":0,"afd":36,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"201002013","volg":1},
+{"artnr":1003313,"oms":"Campina volle yoghurt pak 1l","pack":"Pak 1lt","besteld":12.000,"geleverd":12.000,"org":12.000,"ver":0.000,"emb":0,"gew":0,"prijs":1.25,"prbtw":1.36,"btw":9.00,"vervang":0,"afd":36,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"201003313","volg":2},
+{"artnr":4220290,"oms":"Chefsegg eieren br.L GEKOELD sch","pack":"Doos 90st","besteld":2.000,"geleverd":2.000,"org":2.000,"ver":0.000,"emb":0,"gew":0,"prijs":17.54,"prbtw":19.11,"btw":9.00,"vervang":0,"afd":36,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"204220290","volg":3},
+{"artnr":7200017,"oms":"Emb. heen vouwkrat Jongens","pack":"Per stuk","besteld":3.000,"geleverd":3.000,"org":3.000,"ver":0.000,"emb":1,"gew":0,"prijs":7.50,"prbtw":7.50,"btw":0.00,"vervang":0,"afd":99,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"997200017","volg":4}]
+}
+]}]

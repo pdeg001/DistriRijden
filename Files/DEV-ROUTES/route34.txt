@@ -1,0 +1,58 @@
+[{"route":"34","naam":"Texel 2","user":"054 Anneke","chauffeur":"Leon Grootjen","nr":33,"kenteken":"","pin":"7342","digi":1,"orders":[
+{"ordernr":44926,"klantnr":330343,"volgnr":23,"naam":"TEXELSE BRANDING","adres":"VISMARKT 6","postcode":"1791CD","woonplaats":"DEN BURG","land":"Nederland","email":"bakkerij@texelsebranding.nl","email2":"","email3":"","email4":"","email5":"","bestnaam":"","bestordn":"","prijzen":0,"agfprijs":0,"geenemb":0,"tel1":"06-46086512","tel2":"","contant":0,"begin":"0000","eind":"0000","bedrag":0.00,"icodes":0,"done":0,"emballage":[],"retouren":[],"mancos":[],"kopm":[],"opm":"","maand":[
+{"artnr":103747,"price":16.05,"btw":9.00,"ean":8715600238594},
+{"artnr":200395,"price":18.49,"btw":21.00,"ean":5056025401822},
+{"artnr":1040120,"price":14.80,"btw":9.00,"ean":27394376616505},
+{"artnr":1040740,"price":15.46,"btw":9.00,"ean":5411188132127},
+{"artnr":2001048,"price":5.35,"btw":9.00,"ean":8711000225660},
+{"artnr":2001113,"price":2.26,"btw":9.00,"ean":7640110706442},
+{"artnr":2151306,"price":5.47,"btw":9.00,"ean":5410488821946},
+{"artnr":2151314,"price":5.43,"btw":9.00,"ean":5410488822240},
+{"artnr":2331114,"price":4.74,"btw":9.00,"ean":54061057},
+{"artnr":2332229,"price":1.99,"btw":9.00,"ean":8710863801998},
+{"artnr":2500016,"price":5.33,"btw":21.00,"ean":8719033205604},
+{"artnr":2910174,"price":4.55,"btw":21.00,"ean":8714774302186},
+{"artnr":2910596,"price":20.67,"btw":21.00,"ean":7615400130177},
+{"artnr":2910877,"price":5.82,"btw":21.00,"ean":8710552581354},
+{"artnr":4220266,"price":5.07,"btw":9.00,"ean":8715295000780},
+{"artnr":4220430,"price":4.00,"btw":9.00,"ean":5412671112664},
+{"artnr":4221040,"price":6.73,"btw":9.00,"ean":5709176181319},
+{"artnr":4330700,"price":14.31,"btw":9.00,"ean":8716215006783},
+{"artnr":4331170,"price":1.73,"btw":9.00,"ean":8018731001007},
+{"artnr":4332003,"price":7.96,"btw":9.00,"ean":4015564003349},
+{"artnr":4510104,"price":1.55,"btw":9.00,"ean":2000001004371},
+{"artnr":4510740,"price":1.41,"btw":9.00,"ean":2000001000694},
+{"artnr":4510857,"price":4.95,"btw":9.00,"ean":2000001021682},
+{"artnr":4513314,"price":1.40,"btw":9.00,"ean":2000001095225},
+{"artnr":4513356,"price":1.60,"btw":9.00,"ean":0},
+{"artnr":4514007,"price":9.95,"btw":9.00,"ean":2000001079065},
+{"artnr":4514081,"price":10.95,"btw":9.00,"ean":8712826104016},
+{"artnr":4530540,"price":14.50,"btw":9.00,"ean":2000001119792},
+{"artnr":5228079,"price":5.10,"btw":21.00,"ean":8711369170328},
+{"artnr":5228417,"price":5.13,"btw":21.00,"ean":8711369541302},
+{"artnr":5228483,"price":3.77,"btw":21.00,"ean":8711369541104},
+{"artnr":5317591,"price":11.37,"btw":21.00,"ean":8710653069379},
+{"artnr":5390232,"price":1.68,"btw":21.00,"ean":4014110514377},
+{"artnr":5394052,"price":4.58,"btw":21.00,"ean":3086129999385}
+],
+"artikelen":[
+{"artnr":1040740,"oms":"Alpro oat for prof.1l NL-BIO-01","pack":"Tray 8pk","besteld":1.000,"geleverd":1.000,"org":1.000,"ver":0.000,"emb":0,"gew":0,"prijs":15.46,"prbtw":16.85,"btw":9.00,"vervang":0,"afd":19,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"101040740","volg":1}]
+},
+{"ordernr":44927,"klantnr":330343,"volgnr":23,"naam":"TEXELSE BRANDING","adres":"VISMARKT 6","postcode":"1791CD","woonplaats":"DEN BURG","land":"Nederland","email":"bakkerij@texelsebranding.nl","email2":"","email3":"","email4":"","email5":"","bestnaam":"","bestordn":"","prijzen":0,"agfprijs":0,"geenemb":0,"tel1":"06-46086512","tel2":"","contant":0,"begin":"0000","eind":"0000","bedrag":0.00,"icodes":0,"done":0,"emballage":[],"retouren":[],"mancos":[],"kopm":[],"opm":"","maand":[
+],
+"artikelen":[
+{"artnr":200395,"oms":"Brewdog punk ipa 33cl","pack":"Doos 12fl","besteld":1.000,"geleverd":1.000,"org":1.000,"ver":0.000,"emb":0,"gew":0,"prijs":18.49,"prbtw":22.37,"btw":21.00,"vervang":0,"afd":0,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"100200395","volg":1}]
+},
+{"ordernr":45044,"klantnr":330343,"volgnr":23,"naam":"TEXELSE BRANDING","adres":"VISMARKT 6","postcode":"1791CD","woonplaats":"DEN BURG","land":"Nederland","email":"bakkerij@texelsebranding.nl","email2":"","email3":"","email4":"","email5":"","bestnaam":"","bestordn":"","prijzen":0,"agfprijs":0,"geenemb":0,"tel1":"06-46086512","tel2":"","contant":0,"begin":"0000","eind":"0000","bedrag":0.00,"icodes":0,"done":0,"emballage":[],"retouren":[],"mancos":[],"kopm":[],"opm":"","maand":[
+],
+"artikelen":[
+{"artnr":4510857,"oms":"Wilde spinazie (verpakt) per kg","pack":"Per kg","besteld":1.000,"geleverd":1.000,"org":1.000,"ver":0.000,"emb":0,"gew":1,"prijs":4.95,"prbtw":5.39,"btw":9.00,"vervang":0,"afd":98,"tht":"00000000","statie":0.00,"agf":1,"code":"01433","sort":"304510857","volg":1},
+{"artnr":7200116,"oms":"Emb. heen AGF krat groot","pack":"","besteld":1.000,"geleverd":1.000,"org":1.000,"ver":0.000,"emb":1,"gew":0,"prijs":3.86,"prbtw":3.86,"btw":0.00,"vervang":0,"afd":99,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"997200116","volg":2}]
+},
+{"ordernr":45127,"klantnr":330343,"volgnr":23,"naam":"TEXELSE BRANDING","adres":"VISMARKT 6","postcode":"1791CD","woonplaats":"DEN BURG","land":"Nederland","email":"bakkerij@texelsebranding.nl","email2":"","email3":"","email4":"","email5":"","bestnaam":"","bestordn":"","prijzen":0,"agfprijs":0,"geenemb":0,"tel1":"06-46086512","tel2":"","contant":0,"begin":"0000","eind":"0000","bedrag":0.00,"icodes":0,"done":0,"emballage":[],"retouren":[],"mancos":[],"kopm":[],"opm":"","maand":[
+],
+"artikelen":[
+{"artnr":5228079,"oms":"Hendi barbecue spies rvs 35cm","pack":"Pak 6st","besteld":6.000,"geleverd":6.000,"org":6.000,"ver":0.000,"emb":0,"gew":0,"prijs":5.10,"prbtw":6.17,"btw":21.00,"vervang":0,"afd":32,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"105228079","volg":1},
+{"artnr":7200017,"oms":"Emb. heen vouwkrat Jongens","pack":"Per stuk","besteld":1.000,"geleverd":1.000,"org":1.000,"ver":0.000,"emb":1,"gew":0,"prijs":7.50,"prbtw":7.50,"btw":0.00,"vervang":0,"afd":99,"tht":"00000000","statie":0.00,"agf":0,"code":"","sort":"997200017","volg":2}]
+}
+]}]

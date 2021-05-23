@@ -11,7 +11,7 @@ Version=10.7
 #End Region
 
 Sub Process_Globals
-	Private xui as XUI
+	Private xui As XUI
 End Sub
 
 Sub Globals

@@ -65,9 +65,9 @@ Private Sub GetButtonPanelDimensions
 	pnlNavButtonsWidth = pnlNavButtons.Width
 	navButtonHeight = pnlNavButtonsHeight/5
 	
-	Log($"button panel heigth : ${pnlNavButtonsHeight}
-	button panel width : ${pnlNavButtonsWidth}
-	button height : ${navButtonHeight}"$)
+'	Log($"button panel heigth : ${pnlNavButtonsHeight}
+'	button panel width : ${pnlNavButtonsWidth}
+'	button height : ${navButtonHeight}"$)
 End Sub
 
 Private Sub CreateNavButtons

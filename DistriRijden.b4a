@@ -15,12 +15,12 @@ File20=Raleway-VariableFont_wght.ttf
 File21=route01.txt
 File22=route02.txt
 File23=route03.txt
-File24=route04A.txt
+File24=route04a.txt
 File25=route05.txt
 File26=route06.txt
 File27=route07.txt
 File28=route08.txt
-File29=route09A.txt
+File29=route09a.txt
 File3=customerOrderMain.bal
 File30=route10.txt
 File31=route12.txt
@@ -29,8 +29,8 @@ File33=route16.txt
 File34=route17.txt
 File35=route19.txt
 File36=route20.txt
-File37=route21A.txt
-File38=route23A.txt
+File37=route21a.txt
+File38=route23a.txt
 File39=route25.txt
 File4=dd_logo.png
 File40=route26.txt
@@ -49,7 +49,7 @@ File51=route43.txt
 File52=route44.txt
 File53=route45.txt
 File54=route47.txt
-File55=route50A.txt
+File55=route50a.txt
 File56=route53.txt
 File57=route54.txt
 File58=route55.txt
@@ -57,12 +57,12 @@ File59=route56.txt
 File6=galanogrotesquemedium.ttf
 File60=route57.txt
 File61=route60.txt
-File62=route65A.txt
+File62=route65a.txt
 File63=route67.txt
 File64=route68.txt
-File65=route69A.txt
+File65=route69a.txt
 File66=route72.txt
-File67=route73A.txt
+File67=route73a.txt
 File68=route75.txt
 File69=route80.txt
 File7=galanogrotesqueregular.ttf
@@ -76,10 +76,10 @@ File76=tabOrder.bal
 File8=main.bal
 File9=pnlDriver.bal
 FileGroup1=data
-FileGroup10=Order
+FileGroup10=forms\Order
 FileGroup11=forms\customerOrder\tabPanel
 FileGroup12=forms\customerOrder\tabPanel
-FileGroup13=Route
+FileGroup13=forms\Route
 FileGroup14=fonts
 FileGroup15=fonts
 FileGroup16=fonts
@@ -88,69 +88,69 @@ FileGroup18=fonts
 FileGroup19=fonts
 FileGroup2=forms\customerOrder
 FileGroup20=fonts
-FileGroup21=dev-routes
-FileGroup22=dev-routes
-FileGroup23=dev-routes
-FileGroup24=dev-routes
-FileGroup25=dev-routes
-FileGroup26=dev-routes
-FileGroup27=dev-routes
-FileGroup28=dev-routes
-FileGroup29=dev-routes
+FileGroup21=DEV-ROUTES
+FileGroup22=DEV-ROUTES
+FileGroup23=DEV-ROUTES
+FileGroup24=DEV-ROUTES
+FileGroup25=DEV-ROUTES
+FileGroup26=DEV-ROUTES
+FileGroup27=DEV-ROUTES
+FileGroup28=DEV-ROUTES
+FileGroup29=DEV-ROUTES
 FileGroup3=forms\customerOrder
-FileGroup30=dev-routes
-FileGroup31=dev-routes
-FileGroup32=dev-routes
-FileGroup33=dev-routes
-FileGroup34=dev-routes
-FileGroup35=dev-routes
-FileGroup36=dev-routes
-FileGroup37=dev-routes
-FileGroup38=dev-routes
-FileGroup39=dev-routes
+FileGroup30=DEV-ROUTES
+FileGroup31=DEV-ROUTES
+FileGroup32=DEV-ROUTES
+FileGroup33=DEV-ROUTES
+FileGroup34=DEV-ROUTES
+FileGroup35=DEV-ROUTES
+FileGroup36=DEV-ROUTES
+FileGroup37=DEV-ROUTES
+FileGroup38=DEV-ROUTES
+FileGroup39=DEV-ROUTES
 FileGroup4=images
-FileGroup40=dev-routes
-FileGroup41=dev-routes
-FileGroup42=dev-routes
-FileGroup43=dev-routes
-FileGroup44=dev-routes
-FileGroup45=dev-routes
-FileGroup46=dev-routes
-FileGroup47=dev-routes
-FileGroup48=dev-routes
-FileGroup49=dev-routes
+FileGroup40=DEV-ROUTES
+FileGroup41=DEV-ROUTES
+FileGroup42=DEV-ROUTES
+FileGroup43=DEV-ROUTES
+FileGroup44=DEV-ROUTES
+FileGroup45=DEV-ROUTES
+FileGroup46=DEV-ROUTES
+FileGroup47=DEV-ROUTES
+FileGroup48=DEV-ROUTES
+FileGroup49=DEV-ROUTES
 FileGroup5=data
-FileGroup50=dev-routes
-FileGroup51=dev-routes
-FileGroup52=dev-routes
-FileGroup53=dev-routes
-FileGroup54=dev-routes
-FileGroup55=dev-routes
-FileGroup56=dev-routes
-FileGroup57=dev-routes
-FileGroup58=dev-routes
-FileGroup59=dev-routes
+FileGroup50=DEV-ROUTES
+FileGroup51=DEV-ROUTES
+FileGroup52=DEV-ROUTES
+FileGroup53=DEV-ROUTES
+FileGroup54=DEV-ROUTES
+FileGroup55=DEV-ROUTES
+FileGroup56=DEV-ROUTES
+FileGroup57=DEV-ROUTES
+FileGroup58=DEV-ROUTES
+FileGroup59=DEV-ROUTES
 FileGroup6=fonts
-FileGroup60=dev-routes
-FileGroup61=dev-routes
-FileGroup62=dev-routes
-FileGroup63=dev-routes
-FileGroup64=dev-routes
-FileGroup65=dev-routes
-FileGroup66=dev-routes
-FileGroup67=dev-routes
-FileGroup68=dev-routes
-FileGroup69=dev-routes
+FileGroup60=DEV-ROUTES
+FileGroup61=DEV-ROUTES
+FileGroup62=DEV-ROUTES
+FileGroup63=DEV-ROUTES
+FileGroup64=DEV-ROUTES
+FileGroup65=DEV-ROUTES
+FileGroup66=DEV-ROUTES
+FileGroup67=DEV-ROUTES
+FileGroup68=DEV-ROUTES
+FileGroup69=DEV-ROUTES
 FileGroup7=fonts
-FileGroup70=dev-routes
-FileGroup71=dev-routes
-FileGroup72=dev-routes
-FileGroup73=Order
-FileGroup74=Route
+FileGroup70=DEV-ROUTES
+FileGroup71=DEV-ROUTES
+FileGroup72=DEV-ROUTES
+FileGroup73=forms\Order
+FileGroup74=forms\Route
 FileGroup75=forms\customerOrder\tabPanel
 FileGroup76=forms\customerOrder\tabPanel
-FileGroup8=forms\MAIN
-FileGroup9=forms\MAIN
+FileGroup8=forms\main
+FileGroup9=forms\main
 Group=Default Group
 Library1=core
 Library10=javaobject
@@ -188,7 +188,7 @@ Version=10.7
 #End Region
 
 #Region  Activity Attributes 
-	#FullScreen: True
+	#FullScreen: False
 	#IncludeTitle: False
 #End Region
 
@@ -206,45 +206,47 @@ Sub Globals
 	Private ime As IME
 	Private pnlMainFooter As Panel
 	Private lblArtcileUpdate As Label
-	Private pgBar As AnotherProgressBar
-	Private pnlProgress As Panel
-	Private lblProgress As Label
-	Private pnlClvDriver As Panel
-	Private clvDriver As CustomListView
-	Private lblSelectDriver As Label
-	Private pnlSelectDriver As Panel
-	Private pnlDriverPin As Panel
-	Private edtPin As EditText
-	Private pnlEnterPin As Panel
-	Private lblDriverPinName As Label
-	Private btnPinCancel As Button
-	Private btnPinContinue As Button
+'	Private pgBar As AnotherProgressBar
+'	Private pnlProgress As Panel
+'	Private lblProgress As Label
+'	Private pnlClvDriver As Panel
+'	Private clvDriver As CustomListView
+'	Private lblSelectDriver As Label
+'	Private pnlSelectDriver As Panel
+'	Private pnlDriverPin As Panel
+'	Private edtPin As EditText
+'	Private pnlEnterPin As Panel
+'	Private lblDriverPinName As Label
+'	Private btnPinCancel As Button
+'	Private btnPinContinue As Button
+	Private edtPincode As EditText
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
-	CreateAppFolders
+	Starter.enterPinCount = 0
 	clsFtpDriver.Initialize
 	clsFtpArtilce.Initialize
 	clsDb.Initialize
 	Activity.LoadLayout("main")
 	
-	pgBar.Value = 0
-	pgBar.EmptyColor = 0xFFFF0007
+'	pgBar.Value = 0
+'	pgBar.EmptyColor = 0xFFFF0007
+	Button1_Click
 '	SetArticleUpdate
 	
 '	ime.Initialize("IME")
 '	ime.AddHeightChangedEvent
-'	ime.AddHandleActionEvent(edtPin)
-'	ime.SetCustomFilter(edtPin, edtPin.INPUT_TYPE_NUMBERS, "0123456789.")
-'	ime.SetCustomFilter(edtPin, Bit.Or(edtPin.INPUT_TYPE_TEXT, 0x00080000), _ 
+'	ime.AddHandleActionEvent(edtPincode_EnterPressed)
+'	ime.SetCustomFilter(edtPincode, edtPincode.INPUT_TYPE_NUMBERS, "0123456789.")
+'	ime.SetCustomFilter(edtPincode, Bit.Or(edtPincode.INPUT_TYPE_TEXT, 0x00080000), _
 '	"01234567890")'0x0080000 is the flag of NO_SUGGESTIONS.
 '	IME_HeightChanged(50%x, 0) 'manually call this method to set the layout of EditText1 and btnHideKeyboard
 End Sub
 
-Sub IME_HeightChanged(NewHeight As Int, OldHeight As Int)
-'	btnHideKeyboard.Top = NewHeight - btnHideKeyboard.Height
-'	EditText1.Height = btnHideKeyboard.Top - EditText1.Top
-End Sub
+'Sub IME_HeightChanged(NewHeight As Int, OldHeight As Int)
+''	btnHideKeyboard.Top = NewHeight - btnHideKeyboard.Height
+'	'edtPincode.Height = btnHideKeyboard.Top - EditText1.Top
+'End Sub
 
 Sub Activity_Resume
 
@@ -255,36 +257,39 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 Sub Button1_Click
+	ProgressDialogShow2("Bijwerken gegevens...", False)
 	If Starter.noFtp = False Then
-		pnlClvDriver.SetVisibleAnimated(0, False)
-		pgBar.Value = 0
-		pgBar.UpdateGraphics
+'		pnlClvDriver.SetVisibleAnimated(0, False)
+'		pgBar.Value = 0
+'		pgBar.UpdateGraphics
 		Sleep(100)
 		Wait For (clsFtpArtilce.GetArticles) Complete (ready As Boolean)
 		wait for (clsFtpDriver.GetDrivers) Complete(ready As Boolean)
 	Else
 		wait for (SetArticleUpdate) complete (result As Boolean)
-		EndProgressAnimation
+'		EndProgressAnimation
 	End If
-	
+	ProgressDialogHide
 End Sub
 
-Private Sub CreateAppFolders
-	If File.IsDirectory(Starter.routesFolder, "") = False Then
-		File.MakeDir(Starter.routesFolder,  "")
-	End If
-	If File.IsDirectory(Starter.articleFolder, "") = False Then
-		File.MakeDir(Starter.articleFolder,  "")
-	End If
-	
-End Sub
+'Private Sub CreateAppFolders
+'	If File.IsDirectory(Starter.routesFolder, "") = False Then
+'		File.MakeDir(Starter.routesFolder,  "")
+'	End If
+'	If File.IsDirectory(Starter.articleFolder, "") = False Then
+'		File.MakeDir(Starter.articleFolder,  "")
+'	End If
+'	
+'End Sub
 
 Private Sub SetArticleUpdate As ResumableSub
 	'COPY DEVELOPMENT FILES
 	If Starter.noFtp = True Then
 		File.Copy(File.DirAssets, "artikel.json", Starter.articleFolder, "artikel.json")
 	End If
-	
+	GenFunctions.DeleteFolder(Starter.routesFolder)
+	wait for (GenFunctions.CopyDevRoutes) Complete (result As Boolean)
+	Sleep(500)
 	Wait For (clsFtpArtilce.ProcessArtikelJson) Complete (result As Boolean)
 	wait for (clsFtpDriver.ProcessDriverFromRoute) complete (result As Boolean)
 	
@@ -294,104 +299,144 @@ Private Sub SetArticleUpdate As ResumableSub
 	Return True
 End Sub
 
-Public Sub SetProgressBar(lstProgress As List)
-	If pnlProgress.Visible = False Then pnlProgress.Visible = True
-	lblProgress.Text = $"Bijwerken ${lstProgress.Get(2)} ${lstProgress.Get(0)} van ${lstProgress.Get(1)}"$
-	pgBar.Value = lstProgress.Get(0)*(100/lstProgress.Get(1))  'progress / total *100
-	pgBar.UpdateGraphics
-End Sub
+'Public Sub SetProgressBar(lstProgress As List)
+'	If pnlProgress.Visible = False Then pnlProgress.Visible = True
+'	lblProgress.Text = $"Bijwerken ${lstProgress.Get(2)} ${lstProgress.Get(0)} van ${lstProgress.Get(1)}"$
+'	pgBar.Value = lstProgress.Get(0)*(100/lstProgress.Get(1))  'progress / total *100
+'	pgBar.UpdateGraphics
+'End Sub
 
-Private Sub EndProgressAnimation
-	pnlProgress.SetVisibleAnimated(300, False)
-	pnlClvDriver.SetVisibleAnimated(0, True)
-	CreateDriverList
-End Sub
+'Private Sub EndProgressAnimation
+'	pnlProgress.SetVisibleAnimated(300, False)
+'	pnlClvDriver.SetVisibleAnimated(0, True)
+''	CreateDriverList
+'End Sub
 
-Private Sub CreateDriverList
-	clvDriver.Clear
+'Private Sub CreateDriverList
+'	clvDriver.Clear
+'	
+'	Starter.lstDriverRoute.SortTypeCaseInsensitive("chauffeur", True)
+'	For Each driver As driverRoute In Starter.lstDriverRoute
+'		clvDriver.Add(CreateDriverPanel(driver), "")
+'	Next
+'	clvDriver.Refresh
+'End Sub
+
+'Private Sub CreateDriverPanel(driver As driverRoute) As Panel
+'	Dim pnl As B4XView = xui.CreatePanel("")
+'	pnl.SetLayoutAnimated(0, 0, 0, clvDriver.AsView.Width, 65dip)
+'	pnl.LoadLayout("pnlDriver")
+'	lblSelectDriver.Text = driver.chauffeur
+'	lblSelectDriver.Tag = driver.pin
+'	pnlSelectDriver.Tag = $"${driver.pin};${driver.chauffeur};${driver.route}"$
+'	
+'	Return pnl
+'End Sub
+
+'Private Sub clvDriver_ItemClick (Index As Int, Value As Object)
+'	Log(Index)
+'End Sub
+
+'Private Sub pnlSelectDriver_Click
+'	Dim pnl As Panel = Sender
+'	Dim dPin() As String = Regex.Split(";", pnl.Tag)
+'		
+'	Starter.driverId = ""
+'	Starter.driverRoutes = ""
+'	edtPin.Text = ""
+'	
+'	If dPin.Length > 0 Then 
+'		Starter.enterPinCount = 0
+'		Starter.driverId = dPin(0)
+'		Log(Starter.driverId)
+'		Starter.driverRoutes = dPin(2)
+'		edtPin.Text = dPin(0)
+'		lblDriverPinName.Text = $"${dPin(1)} voer je pincode in"$
+'		'show pin dialog
+'		pnlDriverPin.SetLayoutAnimated(500, 0dip, 0dip, Activity.Width, Activity.Height)
+'		edtPin.RequestFocus
+'		ime.ShowKeyboard(edtPin)
+'	End If
+'End Sub
+
+'Private Sub edtPin_EnterPressed
+'	
+'End Sub
+
+'Private Sub pnlDriverPin_Click
+'	
+'End Sub
+
+'Private Sub edtPin_FocusChanged (HasFocus As Boolean)
+'	ime.ShowKeyboard(edtPin)
+'End Sub
+
+'Private Sub btnPinContinue_Click
+'	If edtPin.Text <> Starter.driverId Then
+'		ToastMessageShow("Pincode onjuist", False)
+'		Starter.enterPinCount = Starter.enterPinCount + 1
+'		If Starter.enterPinCount >= 3 Then
+'			Msgbox2Async("2 foutive pogingen, DistriRijden wordt afgesloten", "DIstriRijden", "Oke", "", "", Null, "")
+'			Wait For Msgbox_Result (Result As Int)
+'			If Result = DialogResponse.POSITIVE Then
+'				Activity.Finish
+'			End If
+'		End If
+'		edtPin.Text = ""
+'	Else
+'		HidePinDialog
+'		Sleep(300)
+'		StartActivity(DriverSelectRoute)
+'	End If
+'	
+'End Sub
+'
+'Private Sub btnPinCancel_Click
+'	HidePinDialog
+'End Sub
+
+'Private Sub HidePinDialog
+'	ime.HideKeyboard
+'	Sleep(500)
+'	pnlDriverPin.SetLayoutAnimated(500, 0dip, Activity.Height+300dip, Activity.Width, Activity.Height)
+'End Sub
+
+
+
+Private Sub edtPincode_EnterPressed
+	Dim pin As String = edtPincode.Text
+	Dim pinValid As Boolean
 	
-	Starter.lstDriverRoute.SortTypeCaseInsensitive("chauffeur", True)
 	For Each driver As driverRoute In Starter.lstDriverRoute
-		clvDriver.Add(CreateDriverPanel(driver), "")
-	Next
-	clvDriver.Refresh
-End Sub
-
-Private Sub CreateDriverPanel(driver As driverRoute) As Panel
-	Dim pnl As B4XView = xui.CreatePanel("")
-	pnl.SetLayoutAnimated(0, 0, 0, clvDriver.AsView.Width, 65dip)
-	pnl.LoadLayout("pnlDriver")
-	lblSelectDriver.Text = driver.chauffeur
-	lblSelectDriver.Tag = driver.pin
-	pnlSelectDriver.Tag = $"${driver.pin};${driver.chauffeur};${driver.route}"$
-	
-	Return pnl
-End Sub
-
-Private Sub clvDriver_ItemClick (Index As Int, Value As Object)
-	Log(Index)
-End Sub
-
-Private Sub pnlSelectDriver_Click
-	Dim pnl As Panel = Sender
-	Dim dPin() As String = Regex.Split(";", pnl.Tag)
-		
-	Starter.driverId = ""
-	Starter.driverRoutes = ""
-	edtPin.Text = ""
-	
-	If dPin.Length > 0 Then 
-		Starter.enterPinCount = 0
-		Starter.driverId = dPin(0)
-		Log(Starter.driverId)
-		Starter.driverRoutes = dPin(2)
-		edtPin.Text = dPin(0)
-		lblDriverPinName.Text = $"${dPin(1)} voer je pincode in"$
-		'show pin dialog
-		pnlDriverPin.SetLayoutAnimated(500, 0dip, 0dip, Activity.Width, Activity.Height)
-		edtPin.RequestFocus
-		ime.ShowKeyboard(edtPin)
-	End If
-End Sub
-
-Private Sub edtPin_EnterPressed
-	
-End Sub
-
-Private Sub pnlDriverPin_Click
-	
-End Sub
-
-Private Sub edtPin_FocusChanged (HasFocus As Boolean)
-	ime.ShowKeyboard(edtPin)
-End Sub
-
-Private Sub btnPinContinue_Click
-	If edtPin.Text <> Starter.driverId Then
-		ToastMessageShow("Pincode onjuist", False)
-		Starter.enterPinCount = Starter.enterPinCount + 1
-		If Starter.enterPinCount >= 3 Then
-			Msgbox2Async("2 foutive pogingen, DistriRijden wordt afgesloten", "DIstriRijden", "Oke", "", "", Null, "")
-			Wait For Msgbox_Result (Result As Int)
-			If Result = DialogResponse.POSITIVE Then
-				Activity.Finish
-			End If
+		If driver.pin = pin Then
+			Starter.driverId = pin
+			Starter.driverRoutes = driver.route
+			pinValid = True
+			Exit
 		End If
-		edtPin.Text = ""
-	Else
-		HidePinDialog
-		Sleep(300)
-		StartActivity(DriverSelectRoute)
-	End If
+	Next
 	
+	If pinValid = False Then
+		If Starter.enterPinCount >= 2 Then
+			InvalidLogIn
+			Return
+		End If
+		Starter.enterPinCount = Starter.enterPinCount + 1
+		edtPincode.Text = ""
+		Msgbox2Async("Pincode onjuist", Application.LabelName, "OKE", "", "", Application.Icon, False)
+		Wait For Msgbox_Result (Result As Int)
+		If Result = DialogResponse.POSITIVE Then
+			Return
+		End If
+	End If
+	Sleep(300)
+	StartActivity(DriverSelectRoute)
 End Sub
 
-Private Sub btnPinCancel_Click
-	HidePinDialog
-End Sub
-
-Private Sub HidePinDialog
-	ime.HideKeyboard
-	Sleep(500)
-	pnlDriverPin.SetLayoutAnimated(500, 0dip, Activity.Height+300dip, Activity.Width, Activity.Height)
+Private Sub InvalidLogIn
+	Msgbox2Async("3 foutive pogingen, DistriRijden wordt afgesloten", Application.LabelName, "Oke", "", "", Null, False)
+	Wait For Msgbox_Result (Result As Int)
+	If Result = DialogResponse.POSITIVE Then
+		Activity.Finish
+	End If
 End Sub

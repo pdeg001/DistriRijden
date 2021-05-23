@@ -51,6 +51,7 @@ Sub Service_Create
 	DateTime.DateFormat = currDateFormat
 	GetFilesFolder
 	SetFileFolders
+	CreateAppFolders
 	InitSql
 End Sub
 
@@ -70,7 +71,15 @@ End Sub
 Sub Service_Destroy
 
 End Sub
-
+Private Sub CreateAppFolders
+	If File.IsDirectory(routesFolder, "") = False Then
+		File.MakeDir(routesFolder,  "")
+	End If
+	If File.IsDirectory(articleFolder, "") = False Then
+		File.MakeDir(articleFolder,  "")
+	End If
+	
+End Sub
 Private Sub GetFilesFolder
 	filesFolder = rp.GetSafeDirDefaultExternal("")
 End Sub

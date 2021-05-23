@@ -111,10 +111,12 @@ End Sub
 Private Sub CreateOrderPanel(klantnr As String, begin As String, eind As String, _
 	naam As String, adres As String, postcode As String, woonplaats As String, _
 	tel1 As String, tel2 As String, opm As String, OrderCount As String) As Panel
+	
 	Dim pnl As B4XView = xui.CreatePanel("")
 	pnl.SetLayoutAnimated(0, 0, 0, clvOrders.AsView.Width, 160dip)
 	pnl.LoadLayout("pnlOrder")
 	pnl.Tag = CreatedriverCustomer(klantnr, naam, Starter.driverSelectedRoute, OrderCount)
+	
 	pnlRoute.Tag = CreatedriverCustomer(klantnr, naam, Starter.driverSelectedRoute, OrderCount)
 	lblName.Text = $"${klantnr.SubString2(0,3)}.${klantnr.SubString2(3,6)} ${naam} (${OrderCount})"$
 	lblAddress.Text =$"${adres}${CRLF}${postcode} ${woonplaats}${CRLF}${ConcatPhoneNumber(tel1, tel2)}"$
@@ -149,7 +151,7 @@ End Sub
 
 Private Sub pnlRoute_Click
 	Dim pnl As Panel = Sender
-	Log(pnl.Tag)
+'	Log(pnl.Tag)
 	Starter.lstSelectedCustInfo.Initialize
 	Starter.lstSelectedCustInfo = pnl.Tag
 	StartActivity(CustomerOrder)

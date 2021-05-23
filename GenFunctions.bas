@@ -98,6 +98,39 @@ Sub FormatArticleNumber(articleNr As String) As String
 End Sub
 
 Sub FormatCustomerNumber(customerNr As String) As String
+	if customerNr = "" then Return ""
 	If customerNr.Length < 6 Then customerNr = $"0${customerNr}"$
 	Return $"${customerNr.SubString2(0,3)}.${customerNr.SubString2(3,6)}"$
+End Sub
+
+Sub CopyFolder(Source As String, targetFolder As String)
+	If File.Exists(targetFolder, "") = False Then File.MakeDir(targetFolder, "")
+	For Each f As String In File.ListFiles(Source)
+		If File.IsDirectory(Source, f) Then
+			CopyFolder(File.Combine(Source, f), File.Combine(targetFolder, f))
+			Continue
+		End If
+		File.Copy(Source, f, targetFolder, f)
+	Next
+End Sub
+
+Sub DeleteFolder (folder As String)
+	For Each f As String In File.ListFiles(folder)
+		If File.IsDirectory(folder, f) Then
+			DeleteFolder(File.Combine(folder, f))
+		End If
+		File.Delete(folder, f)
+	Next
+End Sub
+
+Sub CopyDevRoutes As ResumableSub
+	Dim devRoutePath As String = File.DirAssets
+	
+	For Each f As String In File.ListFiles(devRoutePath)
+		If f.StartsWith("route") And f.EndsWith(".txt") Then
+			File.Copy(File.DirAssets, f, Starter.routesFolder, f)
+		End If
+	Next
+	
+	Return True
 End Sub
