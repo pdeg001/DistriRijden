@@ -86,7 +86,7 @@ End Sub
 
 Private Sub InitSql
 	If File.Exists(filesFolder, "distririjden.db") = False Then
-		File.Copy(File.DirAssets, "disrtirijden.db", filesFolder, "distrrijden.db")
+		File.Copy(File.DirAssets, "distririjden.db", filesFolder, "distrrijden.db")
 	End If
 End Sub
 

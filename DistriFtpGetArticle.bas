@@ -64,9 +64,11 @@ public Sub ProcessArtikelJson As ResumableSub
 	End If
 	
 	Starter.sql.ExecNonQuery("DELETE FROM artikel")
-	Sleep(100)
+	Starter.sql.ExecNonQuery("DELETE FROM emballage")
+	Starter.sql.ExecNonQuery("DELETE FROM reden")
+	Sleep(400)
 	
-	Dim qry As String = $"INSERT INTO artikel (artnr, omschrijving, alfa, pack, statie, ean1, ean2, ean3) 
+	Dim qry As String = $"INSERT INTO artikel (artnr, omschrijving, alfa, pack, statie, ean1, ean2, ean3)
 	VALUES (?, ?, ?, ?, ?, ?, ?, ?)"$
 	
 	Dim parser As JSONParser
@@ -75,29 +77,47 @@ public Sub ProcessArtikelJson As ResumableSub
 	Dim artikelen As List = root.Get("artikelen")
 	
 	Starter.sql.BeginTransaction
-	For Each colartikelen As Map In artikelen
-		Dim ean1 As String = colartikelen.Get("ean1")
-		Dim oms As String = colartikelen.Get("oms")
-		Dim artnr As Int = colartikelen.Get("artnr")
-		Dim alfa As String = colartikelen.Get("alfa")
-		Dim pack As String = colartikelen.Get("pack")
-		Dim statie As Int = colartikelen.Get("statie")
-		Dim ean3 As String = colartikelen.Get("ean3")
-		Dim ean2 As String = colartikelen.Get("ean2")
+	Try
+		For Each colartikelen As Map In artikelen
+			Dim ean1 As String = colartikelen.Get("ean1")
+			Dim oms As String = colartikelen.Get("oms")
+			Dim artnr As Int = colartikelen.Get("artnr")
+			Dim alfa As String = colartikelen.Get("alfa")
+			Dim pack As String = colartikelen.Get("pack")
+			Dim statie As Int = colartikelen.Get("statie")
+			Dim ean3 As String = colartikelen.Get("ean3")
+			Dim ean2 As String = colartikelen.Get("ean2")
 		
-		Starter.sql.ExecNonQuery2(qry, Array As String(artnr, oms, alfa, pack, statie, ean1, ean2, ean3))
-	Next
-	Starter.sql.TransactionSuccessful
+			Starter.sql.ExecNonQuery2(qry, Array As String(artnr, oms, alfa, pack, statie, ean1, ean2, ean3))
+		Next
+		Starter.sql.TransactionSuccessful
+	Catch
+		Log(LastException)
+	End Try
 	Starter.sql.EndTransaction
 
+	qry = $"INSERT INTO emballage (artnr, omschrijving, toon, prijs) VALUES (?, ?, ?, ?)"$
+	Starter.sql.BeginTransaction
+	Dim emballage As List = root.Get("emballage")
+	
+	Try
+		For Each colemballage As Map In emballage
+			Dim oms As String = colemballage.Get("oms")
+			Dim artnr As Int = colemballage.Get("artnr")
+			Dim toon As Int = colemballage.Get("toon")
+			Dim prijs As Double = colemballage.Get("prijs")
+			Log(prijs)
+			Starter.sql.ExecQuery2(qry, Array As String(artnr, oms, toon, prijs))
+		Next
+		Starter.sql.TransactionSuccessful
+	Catch
+		Log(LastException)
+	End Try
+	
+	Starter.sql.EndTransaction
+	Starter.sql.Close
+
 #region ingnore
-'	Dim emballage As List = root.Get("emballage")
-'	For Each colemballage As Map In emballage
-'		Dim oms As String = colemballage.Get("oms")
-'		Dim artnr As Int = colemballage.Get("artnr")
-'		Dim toon As Int = colemballage.Get("toon")
-'		Dim prijs As Double = colemballage.Get("prijs")
-'	Next
 '	Dim reden As List = root.Get("reden")
 '	For Each colreden As String In reden
 '	Next
